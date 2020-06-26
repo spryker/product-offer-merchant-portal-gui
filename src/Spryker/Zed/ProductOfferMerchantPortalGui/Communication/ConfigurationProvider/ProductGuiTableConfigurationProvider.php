@@ -5,21 +5,21 @@
  * Use of this software requires acceptance of the Spryker Marketplace License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Table\ProductTable;
+namespace Spryker\Zed\ProductOfferMerchantPortalGui\Communication\ConfigurationProvider;
 
 use ArrayObject;
 use Generated\Shared\Transfer\GuiTableConfigurationTransfer;
-use Generated\Shared\Transfer\GuiTableDataTransfer;
+use Generated\Shared\Transfer\GuiTableDataSourceConfigurationTransfer;
+use Generated\Shared\Transfer\GuiTableFiltersConfigurationTransfer;
+use Generated\Shared\Transfer\GuiTableRowActionsConfigurationTransfer;
 use Generated\Shared\Transfer\GuiTableRowActionTransfer;
-use Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Table\AbstractTable;
-use Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Table\TableDataProviderInterface;
+use Generated\Shared\Transfer\GuiTableSearchConfigurationTransfer;
+use Generated\Shared\Transfer\ProductConcreteTransfer;
+use Spryker\Zed\GuiTable\Communication\ConfigurationProvider\AbstractGuiTableConfigurationProvider;
+use Spryker\Zed\ProductOfferMerchantPortalGui\Communication\DataProvider\ProductTableDataProvider;
 use Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToTranslatorFacadeInterface;
-use Symfony\Component\HttpFoundation\Request;
 
-/**
- * @method \Spryker\Zed\ProductOfferMerchantPortalGui\ProductOfferMerchantPortalGuiConfig getConfig()
- */
-class ProductTable extends AbstractTable
+class ProductGuiTableConfigurationProvider extends AbstractGuiTableConfigurationProvider
 {
     public const COL_KEY_NAME = 'name';
     public const COL_KEY_SKU = 'sku';
@@ -38,36 +38,22 @@ class ProductTable extends AbstractTable
     protected const DATA_URL = '/product-offer-merchant-portal-gui/create-offer/table-data';
 
     /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Table\TableDataProviderInterface
+     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToTranslatorFacadeInterface
      */
-    protected $productTableDataProvider;
+    protected $translatorFacade;
 
     /**
      * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Table\TableDataProviderInterface $productTableDataProvider
      */
-    public function __construct(
-        ProductOfferMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade,
-        TableDataProviderInterface $productTableDataProvider
-    ) {
-        parent::__construct($translatorFacade);
-        $this->productTableDataProvider = $productTableDataProvider;
-    }
-
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Generated\Shared\Transfer\GuiTableDataTransfer
-     */
-    protected function provideTableData(Request $request): GuiTableDataTransfer
+    public function __construct(ProductOfferMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade)
     {
-        return $this->productTableDataProvider->getData($request, $this->buildTableConfiguration());
+        $this->translatorFacade = $translatorFacade;
     }
 
     /**
      * @return \Generated\Shared\Transfer\GuiTableConfigurationTransfer
      */
-    protected function buildTableConfiguration(): GuiTableConfigurationTransfer
+    public function getConfiguration(): GuiTableConfigurationTransfer
     {
         $guiTableConfigurationTransfer = new GuiTableConfigurationTransfer();
         $guiTableConfigurationTransfer = $this->addColumnsToConfiguration($guiTableConfigurationTransfer);
@@ -75,7 +61,9 @@ class ProductTable extends AbstractTable
         $guiTableConfigurationTransfer = $this->addRowActionsToConfiguration($guiTableConfigurationTransfer);
         $guiTableConfigurationTransfer = $this->addSearchToConfiguration($guiTableConfigurationTransfer);
         $guiTableConfigurationTransfer->setDefaultSortColumn($this->getDefaultSortColumnKey());
-        $guiTableConfigurationTransfer->setDataUrl(static::DATA_URL);
+        $guiTableConfigurationTransfer->setDataSource(
+            (new GuiTableDataSourceConfigurationTransfer())->setUrl(static::DATA_URL)
+        );
 
         return $guiTableConfigurationTransfer;
     }
@@ -129,7 +117,9 @@ class ProductTable extends AbstractTable
                 '0' => 'Inactive',
             ]),
         ]);
-        $guiTableConfigurationTransfer->setFilters($filters);
+        $guiTableConfigurationTransfer->setFilters(
+            (new GuiTableFiltersConfigurationTransfer())->setItems($filters)
+        );
 
         return $guiTableConfigurationTransfer;
     }
@@ -153,10 +143,19 @@ class ProductTable extends AbstractTable
             ->setId('create-offer')
             ->setTitle('Create Offer')
             ->setType('form-overlay')
-            ->addTypeOption('url', 'https://path-to-create-offer-action/${row.sku}')
-            ->addTypeOption('icon', 'icon-name');
+            ->addTypeOption(
+                'url',
+                sprintf(
+                    '/product-offer-merchant-portal-gui/create-product-offer?product-id=${row.%s}',
+                    ProductConcreteTransfer::ID_PRODUCT_CONCRETE
+                )
+            );
 
-        $guiTableConfigurationTransfer->addRowAction($guiTableRowActionTransfer);
+        $guiTableConfigurationTransfer->setRowActions(
+            (new GuiTableRowActionsConfigurationTransfer())
+                ->addAction($guiTableRowActionTransfer)
+                ->setClick('create-offer')
+        );
 
         return $guiTableConfigurationTransfer;
     }
@@ -168,7 +167,10 @@ class ProductTable extends AbstractTable
      */
     protected function addSearchToConfiguration(GuiTableConfigurationTransfer $guiTableConfigurationTransfer): GuiTableConfigurationTransfer
     {
-        $guiTableConfigurationTransfer->addSearchOption('placeholder', static::SEARCH_PLACEHOLDER);
+        $guiTableConfigurationTransfer->setSearch(
+            (new GuiTableSearchConfigurationTransfer())
+                ->addSearchOption('placeholder', static::SEARCH_PLACEHOLDER)
+        );
 
         return $guiTableConfigurationTransfer;
     }
