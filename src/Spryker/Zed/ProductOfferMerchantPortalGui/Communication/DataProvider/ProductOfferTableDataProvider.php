@@ -5,23 +5,22 @@
  * Use of this software requires acceptance of the Spryker Marketplace License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Table\ProductOfferTable;
+namespace Spryker\Zed\ProductOfferMerchantPortalGui\Communication\DataProvider;
 
-use Generated\Shared\Transfer\GuiTableDataTransfer;
+use Generated\Shared\Transfer\GuiTableDataRequestTransfer;
+use Generated\Shared\Transfer\GuiTableDataResponseTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Generated\Shared\Transfer\ProductOfferTableCriteriaTransfer;
 use Generated\Shared\Transfer\ProductOfferTransfer;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
+use Spryker\Zed\GuiTable\Communication\DataProvider\AbstractGuiTableDataProvider;
 use Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Builder\ProductNameBuilderInterface;
-use Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Table\AbstractTableDataProvider;
-use Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Table\GuiTableDataRequest\GuiTableDataRequestBuilderInterface;
+use Spryker\Zed\ProductOfferMerchantPortalGui\Communication\ConfigurationProvider\ProductOfferGuiTableConfigurationProvider;
 use Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface;
 use Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToTranslatorFacadeInterface;
-use Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Service\ProductOfferMerchantPortalGuiToUtilDateTimeServiceInterface;
 use Spryker\Zed\ProductOfferMerchantPortalGui\Persistence\ProductOfferMerchantPortalGuiRepositoryInterface;
-use Symfony\Component\HttpFoundation\Request;
 
-class ProductOfferTableDataProvider extends AbstractTableDataProvider
+class ProductOfferTableDataProvider extends AbstractGuiTableDataProvider
 {
     public const COLUMN_DATA_VISIBILITY_ONLINE = 'Online';
     protected const COLUMN_DATA_VISIBILITY_OFFLINE = 'Offline';
@@ -42,58 +41,34 @@ class ProductOfferTableDataProvider extends AbstractTableDataProvider
     protected $productNameBuilder;
 
     /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Service\ProductOfferMerchantPortalGuiToUtilDateTimeServiceInterface
-     */
-    protected $utilDateTimeService;
-
-    /**
      * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface
      */
     protected $merchantUserFacade;
 
     /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Table\GuiTableDataRequest\GuiTableDataRequestBuilderInterface
-     */
-    protected $guiTableDataRequestBuilder;
-
-    /**
      * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Persistence\ProductOfferMerchantPortalGuiRepositoryInterface $productOfferMerchantPortalGuiRepository
      * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Service\ProductOfferMerchantPortalGuiToUtilDateTimeServiceInterface $utilDateTimeService
      * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Builder\ProductNameBuilderInterface $productNameBuilder
      * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Table\GuiTableDataRequest\GuiTableDataRequestBuilderInterface $guiTableDataRequestBuilder
      */
     public function __construct(
         ProductOfferMerchantPortalGuiRepositoryInterface $productOfferMerchantPortalGuiRepository,
         ProductOfferMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade,
-        ProductOfferMerchantPortalGuiToUtilDateTimeServiceInterface $utilDateTimeService,
         ProductNameBuilderInterface $productNameBuilder,
-        ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade,
-        GuiTableDataRequestBuilderInterface $guiTableDataRequestBuilder
+        ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
     ) {
         $this->productOfferMerchantPortalGuiRepository = $productOfferMerchantPortalGuiRepository;
         $this->translatorFacade = $translatorFacade;
         $this->productNameBuilder = $productNameBuilder;
-        $this->utilDateTimeService = $utilDateTimeService;
         $this->merchantUserFacade = $merchantUserFacade;
-        $this->guiTableDataRequestBuilder = $guiTableDataRequestBuilder;
     }
 
     /**
-     * @return \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Table\GuiTableDataRequest\GuiTableDataRequestBuilderInterface
-     */
-    protected function getGuiTableDataRequestBuilder(): GuiTableDataRequestBuilderInterface
-    {
-        return $this->guiTableDataRequestBuilder;
-    }
-
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Generated\Shared\Transfer\GuiTableDataRequestTransfer $guiTableDataRequestTransfer
      *
      * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
      */
-    protected function createCriteria(Request $request): AbstractTransfer
+    protected function createCriteria(GuiTableDataRequestTransfer $guiTableDataRequestTransfer): AbstractTransfer
     {
         return (new ProductOfferTableCriteriaTransfer())
             ->setIdMerchant($this->merchantUserFacade->getCurrentMerchantUser()->getIdMerchant());
@@ -102,9 +77,9 @@ class ProductOfferTableDataProvider extends AbstractTableDataProvider
     /**
      * @param \Generated\Shared\Transfer\ProductOfferTableCriteriaTransfer $criteriaTransfer
      *
-     * @return \Generated\Shared\Transfer\GuiTableDataTransfer
+     * @return \Generated\Shared\Transfer\GuiTableDataResponseTransfer
      */
-    protected function fetchData(AbstractTransfer $criteriaTransfer): GuiTableDataTransfer
+    protected function fetchData(AbstractTransfer $criteriaTransfer): GuiTableDataResponseTransfer
     {
         $productOfferCollectionTransfer = $this->productOfferMerchantPortalGuiRepository->getProductOfferTableData($criteriaTransfer);
         $productTableDataArray = [];
@@ -112,24 +87,24 @@ class ProductOfferTableDataProvider extends AbstractTableDataProvider
         foreach ($productOfferCollectionTransfer->getProductOffers() as $productOfferTransfer) {
             $productTableDataArray[] = [
                 ProductOfferTransfer::ID_PRODUCT_OFFER => $productOfferTransfer->getIdProductOffer(),
-                ProductOfferTable::COL_KEY_OFFER_REFERENCE => $productOfferTransfer->getProductOfferReference(),
-                ProductOfferTable::COL_KEY_MERCHANT_SKU => $productOfferTransfer->getMerchantSku(),
-                ProductOfferTable::COL_KEY_CONCRETE_SKU => $productOfferTransfer->getConcreteSku(),
-                ProductOfferTable::COL_KEY_IMAGE => $this->getImageUrl($productOfferTransfer),
-                ProductOfferTable::COL_KEY_PRODUCT_NAME => $this->getNameColumnData($productOfferTransfer),
-                ProductOfferTable::COL_KEY_STORES => $this->getStoresColumnData($productOfferTransfer),
-                ProductOfferTable::COL_KEY_STOCK => $this->getStockColumnData($productOfferTransfer),
-                ProductOfferTable::COL_KEY_VISIBILITY => $this->getVisibilityColumnData($productOfferTransfer),
-                ProductOfferTable::COL_KEY_VALID_FROM => $this->getValidFromColumnData($productOfferTransfer),
-                ProductOfferTable::COL_KEY_VALID_TO => $this->getValidToColumnData($productOfferTransfer),
-                ProductOfferTable::COL_KEY_CREATED_AT => $this->getFormattedDateTime($productOfferTransfer->getCreatedAt()),
-                ProductOfferTable::COL_KEY_UPDATED_AT => $this->getFormattedDateTime($productOfferTransfer->getUpdatedAt()),
+                ProductOfferGuiTableConfigurationProvider::COL_KEY_OFFER_REFERENCE => $productOfferTransfer->getProductOfferReference(),
+                ProductOfferGuiTableConfigurationProvider::COL_KEY_MERCHANT_SKU => $productOfferTransfer->getMerchantSku(),
+                ProductOfferGuiTableConfigurationProvider::COL_KEY_CONCRETE_SKU => $productOfferTransfer->getConcreteSku(),
+                ProductOfferGuiTableConfigurationProvider::COL_KEY_IMAGE => $this->getImageUrl($productOfferTransfer),
+                ProductOfferGuiTableConfigurationProvider::COL_KEY_PRODUCT_NAME => $this->getNameColumnData($productOfferTransfer),
+                ProductOfferGuiTableConfigurationProvider::COL_KEY_STORES => $this->getStoresColumnData($productOfferTransfer),
+                ProductOfferGuiTableConfigurationProvider::COL_KEY_STOCK => $this->getStockColumnData($productOfferTransfer),
+                ProductOfferGuiTableConfigurationProvider::COL_KEY_VISIBILITY => $this->getVisibilityColumnData($productOfferTransfer),
+                ProductOfferGuiTableConfigurationProvider::COL_KEY_VALID_FROM => $this->getValidFromColumnData($productOfferTransfer),
+                ProductOfferGuiTableConfigurationProvider::COL_KEY_VALID_TO => $this->getValidToColumnData($productOfferTransfer),
+                ProductOfferGuiTableConfigurationProvider::COL_KEY_CREATED_AT => $productOfferTransfer->getCreatedAt(),
+                ProductOfferGuiTableConfigurationProvider::COL_KEY_UPDATED_AT => $productOfferTransfer->getUpdatedAt(),
             ];
         }
 
         $paginationTransfer = $productOfferCollectionTransfer->getPagination();
 
-        return (new GuiTableDataTransfer())->setData($productTableDataArray)
+        return (new GuiTableDataResponseTransfer())->setData($productTableDataArray)
             ->setPage($paginationTransfer->getPage())
             ->setPageSize($paginationTransfer->getMaxPerPage())
             ->setTotal($paginationTransfer->getNbResults());
@@ -211,7 +186,7 @@ class ProductOfferTableDataProvider extends AbstractTableDataProvider
             return null;
         }
 
-        return $this->getFormattedDateTime($productOfferValidityTransfer->getValidFrom());
+        return $productOfferValidityTransfer->getValidFrom();
     }
 
     /**
@@ -227,17 +202,7 @@ class ProductOfferTableDataProvider extends AbstractTableDataProvider
             return null;
         }
 
-        return $this->getFormattedDateTime($productOfferValidityTransfer->getValidTo());
-    }
-
-    /**
-     * @param string|null $dateTime
-     *
-     * @return string|null
-     */
-    protected function getFormattedDateTime(?string $dateTime): ?string
-    {
-        return $dateTime ? $this->utilDateTimeService->formatDateTimeToIso8601($dateTime) : null;
+        return $productOfferValidityTransfer->getValidTo();
     }
 
     /**
