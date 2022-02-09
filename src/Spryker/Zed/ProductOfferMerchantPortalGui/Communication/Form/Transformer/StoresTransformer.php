@@ -14,19 +14,19 @@ use Symfony\Component\Form\DataTransformerInterface;
 class StoresTransformer implements DataTransformerInterface
 {
     /**
-     * @param \ArrayObject<int, \Generated\Shared\Transfer\StoreTransfer>|null $value
+     * @param \ArrayObject<int, \Generated\Shared\Transfer\StoreTransfer>|null $storeTransfers
      *
      * @return array<int>|null
      */
-    public function transform($value): ?array
+    public function transform($storeTransfers): ?array
     {
-        if ($value === null) {
+        if ($storeTransfers === null) {
             return null;
         }
 
         $storeIds = [];
 
-        foreach ($value as $storeTransfer) {
+        foreach ($storeTransfers as $storeTransfer) {
             /** @var int $idStore */
             $idStore = $storeTransfer->requireIdStore()->getIdStore();
             $storeIds[] = $idStore;
@@ -36,19 +36,19 @@ class StoresTransformer implements DataTransformerInterface
     }
 
     /**
-     * @param array<int>|null $value
+     * @param array<int>|null $storeIds
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\StoreTransfer>|null
      */
-    public function reverseTransform($value): ?ArrayObject
+    public function reverseTransform($storeIds): ?ArrayObject
     {
-        if ($value === null) {
+        if ($storeIds === null) {
             return null;
         }
 
         $storeTransfers = new ArrayObject();
 
-        foreach ($value as $idStore) {
+        foreach ($storeIds as $idStore) {
             $storeTransfers->append(
                 (new StoreTransfer())->setIdStore((int)$idStore),
             );

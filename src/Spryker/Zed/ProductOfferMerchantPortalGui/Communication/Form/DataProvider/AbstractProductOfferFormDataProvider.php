@@ -119,7 +119,6 @@ abstract class AbstractProductOfferFormDataProvider
         }
 
         foreach ($productOfferTransfer->getProductOfferStocks() as $productOfferStockTransfer) {
-            /** @var \Generated\Shared\Transfer\StockTransfer $firstStockTransfer */
             $firstStockTransfer = $stockTransfers->offsetGet(0);
             /** @var \Generated\Shared\Transfer\StockTransfer $stockTransfer */
             $stockTransfer = $productOfferStockTransfer->requireStock()->getStock();

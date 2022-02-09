@@ -20,16 +20,16 @@ class ValidToRangeConstraintValidator extends AbstractConstraintValidator
     /**
      * Checks if the Valid to value is not earlier than Valid from.
      *
-     * @param string $value
+     * @param string $validTo
      * @param \Symfony\Component\Validator\Constraint $constraint
      *
      * @throws \Symfony\Component\Validator\Exception\UnexpectedTypeException
      *
      * @return void
      */
-    public function validate($value, Constraint $constraint): void
+    public function validate($validTo, Constraint $constraint): void
     {
-        if (!$value) {
+        if (!$validTo) {
             return;
         }
 
@@ -51,10 +51,10 @@ class ValidToRangeConstraintValidator extends AbstractConstraintValidator
             return;
         }
 
-        $value = new DateTime($value);
+        $validTo = new DateTime($validTo);
         $validFrom = new DateTime($validFrom);
 
-        if ($value < $validFrom) {
+        if ($validTo < $validFrom) {
             $this->context->addViolation('The second date cannot be earlier than the first one.');
         }
     }

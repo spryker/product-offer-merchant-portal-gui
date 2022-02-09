@@ -113,7 +113,6 @@ class PriceProductOfferTransformer implements DataTransformerInterface
         $prices = [];
         $priceTypes = $this->priceProductFacade->getPriceTypeValues();
 
-        /** @var \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer */
         foreach ($value as $priceProductTransfer) {
             if ($priceProductTransfer->getIdPriceProduct()) {
                 continue;
@@ -121,12 +120,12 @@ class PriceProductOfferTransformer implements DataTransformerInterface
 
             $key = sprintf(
                 '%d_%d',
-                $priceProductTransfer->getMoneyValueOrFail()->getFkStore(),
-                $priceProductTransfer->getMoneyValueOrFail()->getFkCurrency(),
+                $priceProductTransfer->getMoneyValue()->getFkStore(),
+                $priceProductTransfer->getMoneyValue()->getFkCurrency(),
             );
 
-            $prices[$key][PriceProductOfferTableViewTransfer::STORE] = $priceProductTransfer->getMoneyValueOrFail()->getFkStore();
-            $prices[$key][PriceProductOfferTableViewTransfer::CURRENCY] = $priceProductTransfer->getMoneyValueOrFail()->getFkCurrency();
+            $prices[$key][PriceProductOfferTableViewTransfer::STORE] = $priceProductTransfer->getMoneyValue()->getFkStore();
+            $prices[$key][PriceProductOfferTableViewTransfer::CURRENCY] = $priceProductTransfer->getMoneyValue()->getFkCurrency();
 
             $prices = $this->addPrices($priceProductTransfer, $prices[$key], $priceTypes);
         }

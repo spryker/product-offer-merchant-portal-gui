@@ -23,20 +23,20 @@ class ValidProductOfferPriceIdsOwnByMerchantConstraintValidator extends Abstract
      * Checks if the merchant owns product offer prices.
      *
      * @param \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer $value
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Form\Constraint\ValidProductOfferPriceIdsOwnByMerchantConstraint $constraint
+     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Form\Constraint\ValidProductOfferPriceIdsOwnByMerchantConstraint $validProductOfferPriceIdsConstraint
      *
      * @throws \Symfony\Component\Validator\Exception\UnexpectedTypeException
      *
      * @return void
      */
-    public function validate($value, Constraint $constraint): void
+    public function validate($value, Constraint $validProductOfferPriceIdsConstraint): void
     {
         if (!$value instanceof PriceProductOfferCollectionTransfer) {
             throw new UnexpectedTypeException($value, PriceProductOfferCollectionTransfer::class);
         }
 
-        if (!$constraint instanceof ValidProductOfferPriceIdsOwnByMerchantConstraint) {
-            throw new UnexpectedTypeException($constraint, ValidProductOfferPriceIdsOwnByMerchantConstraint::class);
+        if (!$validProductOfferPriceIdsConstraint instanceof ValidProductOfferPriceIdsOwnByMerchantConstraint) {
+            throw new UnexpectedTypeException($validProductOfferPriceIdsConstraint, ValidProductOfferPriceIdsOwnByMerchantConstraint::class);
         }
 
         $normalizedDataCollection = [];
@@ -58,7 +58,7 @@ class ValidProductOfferPriceIdsOwnByMerchantConstraintValidator extends Abstract
                 ->count($priceProductOfferCriteriaTransfer);
 
             if ($validCount !== count($priceProductOfferIds)) {
-                $this->context->addViolation($constraint->getMessage());
+                $this->context->addViolation($validProductOfferPriceIdsConstraint->getMessage());
             }
         }
     }
