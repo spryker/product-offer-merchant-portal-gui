@@ -1,12 +1,12 @@
-import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { createComponentWrapper, getTestingForComponent } from '@mp/zed-ui/testing';
+import { Component, Input, NO_ERRORS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { EditOfferComponent } from './edit-offer.component';
 
-describe('EditOfferComponent', () => {
-    const { testModule, createComponent } = getTestingForComponent(EditOfferComponent, {
-        ngModule: { schemas: [NO_ERRORS_SCHEMA] },
-        projectContent: `
+@Component({
+    standalone: false,
+    template: `
+        <mp-edit-offer [productDetailsTitle]="productDetailsTitle" [images]="images" [product]="product">
             <span title></span>
             <span sub-title></span>
             <span approval-status></span>
@@ -14,127 +14,138 @@ describe('EditOfferComponent', () => {
             <span product-status></span>
             <span product-details></span>
             <div class="default-slot"></div>
-        `,
-    });
+        </mp-edit-offer>
+    `,
+})
+class TestHostComponent {
+    @Input() productDetailsTitle: any;
+    @Input() images: any;
+    @Input() product: any;
+}
+
+describe('EditOfferComponent', () => {
+    let hostFixture: ComponentFixture<TestHostComponent>;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [testModule],
+            declarations: [EditOfferComponent, TestHostComponent],
+            schemas: [NO_ERRORS_SCHEMA],
         });
+
+        hostFixture = TestBed.createComponent(TestHostComponent);
+        hostFixture.detectChanges();
     });
 
-    it('should render <mp-edit-offer> component', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const editOfferComponent = host.queryCss('mp-edit-offer');
+    it('should render <mp-edit-offer> component', () => {
+        const editOfferComponent = hostFixture.debugElement.query(By.css('mp-edit-offer'));
 
         expect(editOfferComponent).toBeTruthy();
     });
 
-    it('should render <spy-headline> component', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const headlineComponent = host.queryCss('spy-headline');
+    it('should render <spy-headline> component', () => {
+        const headlineComponent = hostFixture.debugElement.query(By.css('spy-headline'));
 
         expect(headlineComponent).toBeTruthy();
     });
 
-    it('should render <spy-card> component', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const cardComponent = host.queryCss('spy-card');
+    it('should render <spy-card> component', () => {
+        const cardComponent = hostFixture.debugElement.query(By.css('spy-card'));
 
         expect(cardComponent).toBeTruthy();
     });
 
-    it('should render <mp-image-slider> component to the <spy-card> component', async () => {
+    it('should render <mp-image-slider> component to the <spy-card> component', () => {
         const mockImages = [
             {
                 src: 'mockImages',
                 alt: 'mockImages',
             },
         ];
-        const host = await createComponentWrapper(createComponent, { images: mockImages });
-        const imageSliderComponent = host.queryCss('spy-card mp-image-slider');
+        const localHostFixture = TestBed.createComponent(TestHostComponent);
+        localHostFixture.componentRef.setInput('images', mockImages);
+        localHostFixture.detectChanges();
+
+        const imageSliderComponent = localHostFixture.debugElement.query(By.css('spy-card mp-image-slider'));
 
         expect(imageSliderComponent).toBeTruthy();
     });
 
-    it('should render <spy-collapsible> component to the <spy-card> component', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const collapsibleComponent = host.queryCss('spy-card spy-collapsible');
+    it('should render <spy-collapsible> component to the <spy-card> component', () => {
+        const collapsibleComponent = hostFixture.debugElement.query(By.css('spy-card spy-collapsible'));
 
         expect(collapsibleComponent).toBeTruthy();
     });
 
-    it('should render `title` slot to the <spy-headline> component', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const titleSlot = host.queryCss('spy-headline [title]');
+    it('should render `title` slot to the <spy-headline> component', () => {
+        const titleSlot = hostFixture.debugElement.query(By.css('spy-headline [title]'));
 
         expect(titleSlot).toBeTruthy();
     });
 
-    it('should render `sub-title` slot to the <spy-headline> component', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const subTitleSlot = host.queryCss('spy-headline [sub-title]');
+    it('should render `sub-title` slot to the <spy-headline> component', () => {
+        const subTitleSlot = hostFixture.debugElement.query(By.css('spy-headline [sub-title]'));
 
         expect(subTitleSlot).toBeTruthy();
     });
 
-    it('should render `approval-status` slot to the <spy-headline> component', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const approvalStatusSlot = host.queryCss('spy-headline [approval-status]');
+    it('should render `approval-status` slot to the <spy-headline> component', () => {
+        const approvalStatusSlot = hostFixture.debugElement.query(By.css('spy-headline [approval-status]'));
 
         expect(approvalStatusSlot).toBeTruthy();
     });
 
-    it('should render `action` slot to the <spy-headline> component', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const actionSlot = host.queryCss('spy-headline [action]');
+    it('should render `action` slot to the <spy-headline> component', () => {
+        const actionSlot = hostFixture.debugElement.query(By.css('spy-headline [action]'));
 
         expect(actionSlot).toBeTruthy();
     });
 
-    it('should render `product-status` slot to the <spy-card> component', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const productStatusSlot = host.queryCss('spy-card [product-status]');
+    it('should render `product-status` slot to the <spy-card> component', () => {
+        const productStatusSlot = hostFixture.debugElement.query(By.css('spy-card [product-status]'));
 
         expect(productStatusSlot).toBeTruthy();
     });
 
-    it('should render `product-details` slot to the <spy-collapsible> component', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const productDetailsSlot = host.queryCss('spy-collapsible [product-details]');
+    it('should render `product-details` slot to the <spy-collapsible> component', () => {
+        const productDetailsSlot = hostFixture.debugElement.query(By.css('spy-collapsible [product-details]'));
 
         expect(productDetailsSlot).toBeTruthy();
     });
 
-    it('should render default slot to the <mp-edit-offer> component', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const defaultSlot = host.queryCss('mp-edit-offer .default-slot');
+    it('should render default slot to the <mp-edit-offer> component', () => {
+        const defaultSlot = hostFixture.debugElement.query(By.css('mp-edit-offer .default-slot'));
 
         expect(defaultSlot).toBeTruthy();
     });
 
-    it('should bound `@Input(productDetailsTitle)` to the `title` input of <spy-collapsible> component', async () => {
+    it('should bound `@Input(productDetailsTitle)` to the `title` input of <spy-collapsible> component', () => {
         const mockProductDetailsTitle = 'productDetailsTitle';
-        const host = await createComponentWrapper(createComponent, { productDetailsTitle: mockProductDetailsTitle });
-        const collapsibleComponent = host.queryCss('spy-collapsible');
+        const localHostFixture = TestBed.createComponent(TestHostComponent);
+        localHostFixture.componentRef.setInput('productDetailsTitle', mockProductDetailsTitle);
+        localHostFixture.detectChanges();
+
+        const collapsibleComponent = localHostFixture.debugElement.query(By.css('spy-collapsible'));
 
         expect(collapsibleComponent.properties.spyTitle).toBe(mockProductDetailsTitle);
     });
 
-    it('should bound `@Input(images)` to the `images` input of <mp-image-slider> component', async () => {
+    it('should bound `@Input(images)` to the `images` input of <mp-image-slider> component', () => {
         const mockImages = [
             {
                 src: 'mockImages',
                 alt: 'mockImages',
             },
         ];
-        const host = await createComponentWrapper(createComponent, { images: mockImages });
-        const imageSliderComponent = host.queryCss('mp-image-slider');
+        const localHostFixture = TestBed.createComponent(TestHostComponent);
+        localHostFixture.componentRef.setInput('images', mockImages);
+        localHostFixture.detectChanges();
+
+        const imageSliderComponent = localHostFixture.debugElement.query(By.css('mp-image-slider'));
 
         expect(imageSliderComponent.properties.images).toEqual(mockImages);
     });
 
-    it('should render `@Input(product)` data to the appropriate places', async () => {
+    it('should render `@Input(product)` data to the appropriate places', () => {
         const mockProduct = {
             name: 'name',
             sku: 'sku',
@@ -144,20 +155,23 @@ describe('EditOfferComponent', () => {
             validFromTitle: 'validFromTitle',
             validToTitle: 'validToTitle',
         };
-        const host = await createComponentWrapper(createComponent, { product: mockProduct });
-        const productTitleElem = host.queryCss('.mp-edit-offer__product-title');
-        const productSkuElem = host.queryCss('.mp-edit-offer__product-sku');
-        const validFromValueElem = host.queryCss(
-            '.mp-edit-offer__product-dates-col:first-child .mp-edit-offer__product-dates-value',
+        const localHostFixture = TestBed.createComponent(TestHostComponent);
+        localHostFixture.componentRef.setInput('product', mockProduct);
+        localHostFixture.detectChanges();
+
+        const productTitleElem = localHostFixture.debugElement.query(By.css('.mp-edit-offer__product-title'));
+        const productSkuElem = localHostFixture.debugElement.query(By.css('.mp-edit-offer__product-sku'));
+        const validFromValueElem = localHostFixture.debugElement.query(
+            By.css('.mp-edit-offer__product-dates-col:first-child .mp-edit-offer__product-dates-value'),
         );
-        const validToValueElem = host.queryCss(
-            '.mp-edit-offer__product-dates-col:last-child .mp-edit-offer__product-dates-value',
+        const validToValueElem = localHostFixture.debugElement.query(
+            By.css('.mp-edit-offer__product-dates-col:last-child .mp-edit-offer__product-dates-value'),
         );
-        const validFromTitleElem = host.queryCss(
-            '.mp-edit-offer__product-dates-col:first-child .mp-edit-offer__product-dates-title',
+        const validFromTitleElem = localHostFixture.debugElement.query(
+            By.css('.mp-edit-offer__product-dates-col:first-child .mp-edit-offer__product-dates-title'),
         );
-        const validToTitleElem = host.queryCss(
-            '.mp-edit-offer__product-dates-col:last-child .mp-edit-offer__product-dates-title',
+        const validToTitleElem = localHostFixture.debugElement.query(
+            By.css('.mp-edit-offer__product-dates-col:last-child .mp-edit-offer__product-dates-title'),
         );
 
         expect(productTitleElem.nativeElement.textContent).toContain(mockProduct.name);

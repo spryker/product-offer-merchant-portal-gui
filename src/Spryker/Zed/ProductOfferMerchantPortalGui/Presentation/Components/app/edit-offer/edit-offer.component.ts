@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
-import { ToJson } from '@spryker/utils';
+import { jsonAttribute } from '@spryker/utils';
 import { Image } from '../image-slider/image-slider.component';
 
 export interface ProductDetails {
@@ -13,6 +13,7 @@ export interface ProductDetails {
 }
 
 @Component({
+    standalone: false,
     selector: 'mp-edit-offer',
     templateUrl: './edit-offer.component.html',
     styleUrls: ['./edit-offer.component.less'],
@@ -23,8 +24,8 @@ export interface ProductDetails {
     },
 })
 export class EditOfferComponent {
-    @Input() @ToJson() product?: ProductDetails;
-    @Input() @ToJson() images?: Image[];
+    @Input({ transform: jsonAttribute }) product?: ProductDetails;
+    @Input({ transform: jsonAttribute }) images?: Image[];
     @Input() productDetailsTitle?: string;
     @Input() productCardTitle?: string;
 }

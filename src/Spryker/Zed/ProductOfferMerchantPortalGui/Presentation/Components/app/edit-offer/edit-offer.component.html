@@ -16,9 +16,11 @@
 <div class="mp-edit-offer__content">
     <spy-card [spyTitle]="productCardTitle" class="mp-edit-offer__card">
         <div class="mp-edit-offer__product">
-            <div class="mp-edit-offer__product-col" *ngIf="images?.length">
-                <mp-image-slider [images]="images"></mp-image-slider>
-            </div>
+            @if (images?.length) {
+                <div class="mp-edit-offer__product-col">
+                    <mp-image-slider [images]="images"></mp-image-slider>
+                </div>
+            }
 
             <div class="mp-edit-offer__product-col mp-edit-offer__product-col--content">
                 <h4 class="mp-edit-offer__product-title">{{ product?.name }}</h4>
@@ -27,14 +29,14 @@
                     <span class="mp-edit-offer__product-dates-col">
                         <span class="mp-edit-offer__product-dates-title">{{ product?.validFromTitle }}:</span>
                         <span class="mp-edit-offer__product-dates-value">
-                            {{ product?.validFrom ? (product?.validFrom | date : product?.validDateFormat) : '-' }}
+                            {{ product?.validFrom ? (product?.validFrom | date: product?.validDateFormat) : '-' }}
                         </span>
                     </span>
 
                     <span class="mp-edit-offer__product-dates-col">
                         <span class="mp-edit-offer__product-dates-title">{{ product?.validToTitle }}:</span>
                         <span class="mp-edit-offer__product-dates-value">
-                            {{ product?.validTo ? (product?.validTo | date : product?.validDateFormat) : '-' }}
+                            {{ product?.validTo ? (product?.validTo | date: product?.validDateFormat) : '-' }}
                         </span>
                     </span>
                 </div>

@@ -64,11 +64,11 @@
 @edit-offer-form-row-padding: var(--spy-edit-offer-form-row-padding, @edit-offer-indent-medium);
 @edit-offer-form-row-col-min-height: var(
     --spy-edit-offer-form-row-col-min-height,
-    calc(@input-height-base + @edit-offer-form-row-padding * 2)
+    calc(var(--spy-input-height-base, 42px) + @edit-offer-form-row-padding * 2)
 );
 @edit-offer-form-row-col-checkbox-min-height: var(
     --spy-edit-offer-form-row-col-checkbox-min-height,
-    calc(@input-height-base + @edit-offer-form-row-padding * 1.5)
+    calc(var(--spy-input-height-base, 42px) + @edit-offer-form-row-padding * 1.5)
 );
 @edit-offer-form-row-base-width: var(--spy-edit-offer-form-row-base-width, 275px);
 @edit-offer-form-row-date-range-base-width: var(--spy-edit-offer-form-row-date-range-base-width, 444px);
@@ -89,7 +89,7 @@
     @border-width-base solid @gray-lighter
 );
 
-.@{ajax-form-prefix-cls}-container {
+.spy-ajax-form-container {
     overflow-y: auto;
 
     &--loading {
@@ -110,7 +110,7 @@
         background: @spy-white;
         padding: @edit-offer-header-padding;
 
-        .@{headline-prefix-cls} {
+        .spy-headline {
             padding-bottom: 0;
         }
     }
@@ -148,12 +148,12 @@
             padding-top: @edit-offer-card-padding-top;
         }
 
-        .@{table-prefix-cls},
-        .@{table-filters-feature-prefix-cls} {
+        .ant-table,
+        .spy-table-filters-feature {
             background: @gray-lighter;
         }
 
-        .@{table-prefix-cls} {
+        .ant-table {
             padding: @edit-offer-table-padding-inside-card;
 
             &-empty {
@@ -256,7 +256,7 @@
     }
 
     &__status {
-        .@{form-item-prefix-cls}-control-input {
+        .ant-form-item-control-input {
             min-height: 0;
         }
     }
@@ -278,7 +278,7 @@
             }
         }
 
-        .@{form-prefix-cls}-item-label label {
+        .ant-form-item-label label {
             font-size: @spy-font-size-sm;
             font-weight: @font-weight-medium;
             padding: 0;
@@ -289,7 +289,7 @@
         }
     }
 
-    .@{collapse-prefix-cls}-content {
+    .ant-collapse-content {
         color: @gray-darker;
         line-height: @edit-offer-collapsible-title-line-height;
 
@@ -299,7 +299,7 @@
         }
     }
 
-    .@{table-editable-feature-prefix-cls}__cell .@{form-prefix-cls}-item {
+    .spy-table-editable-feature__cell .ant-form-item {
         width: @edit-offer-form-item-width;
 
         &-control-input {
@@ -307,7 +307,7 @@
         }
     }
 
-    .@{input-prefix-cls} {
+    .ant-input {
         &-group-addon:first-of-type {
             padding-right: 0;
             width: @edit-offer-input-prefix-width;

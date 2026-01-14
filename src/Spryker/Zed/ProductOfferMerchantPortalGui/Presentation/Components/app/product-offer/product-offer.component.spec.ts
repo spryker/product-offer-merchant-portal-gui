@@ -1,74 +1,87 @@
-import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { createComponentWrapper, getTestingForComponent } from '@mp/zed-ui/testing';
+import { Component, Input, NO_ERRORS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { ProductOfferComponent } from './product-offer.component';
 
-describe('ProductOfferComponent', () => {
-    const { testModule, createComponent } = getTestingForComponent(ProductOfferComponent, {
-        ngModule: { schemas: [NO_ERRORS_SCHEMA] },
-        projectContent: `
+@Component({
+    standalone: false,
+    template: `
+        <mp-product-offer [tableConfig]="tableConfig" [tableId]="tableId">
             <span title></span>
             <span description></span>
-        `,
-    });
+        </mp-product-offer>
+    `,
+})
+class TestHostComponent {
+    @Input() tableConfig: any;
+    @Input() tableId: any;
+}
+
+describe('ProductOfferComponent', () => {
+    let hostFixture: ComponentFixture<TestHostComponent>;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [testModule],
+            declarations: [ProductOfferComponent, TestHostComponent],
+            schemas: [NO_ERRORS_SCHEMA],
         });
+
+        hostFixture = TestBed.createComponent(TestHostComponent);
+        hostFixture.detectChanges();
     });
 
-    it('should render <mp-product-offer-table> component', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const productOfferTableComponent = host.queryCss('mp-product-offer-table');
+    it('should render <mp-product-offer-table> component', () => {
+        const productOfferTableComponent = hostFixture.debugElement.query(By.css('mp-product-offer-table'));
 
         expect(productOfferTableComponent).toBeTruthy();
     });
 
-    it('should render <spy-headline> component', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const headlineComponent = host.queryCss('spy-headline');
+    it('should render <spy-headline> component', () => {
+        const headlineComponent = hostFixture.debugElement.query(By.css('spy-headline'));
 
         expect(headlineComponent).toBeTruthy();
     });
 
-    it('should render `.mp-product-offer__description` element', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const descriptionElem = host.queryCss('.mp-product-offer__description');
+    it('should render `.mp-product-offer__description` element', () => {
+        const descriptionElem = hostFixture.debugElement.query(By.css('.mp-product-offer__description'));
 
         expect(descriptionElem).toBeTruthy();
     });
 
-    it('should render `title` slot to the <spy-headline> component', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const titleSlot = host.queryCss('spy-headline [title]');
+    it('should render `title` slot to the <spy-headline> component', () => {
+        const titleSlot = hostFixture.debugElement.query(By.css('spy-headline [title]'));
 
         expect(titleSlot).toBeTruthy();
     });
 
-    it('should render `description` slot to the `.mp-product-offer__description` element', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const descriptionSlot = host.queryCss('.mp-product-offer__description [description]');
+    it('should render `description` slot to the `.mp-product-offer__description` element', () => {
+        const descriptionSlot = hostFixture.debugElement.query(By.css('.mp-product-offer__description [description]'));
 
         expect(descriptionSlot).toBeTruthy();
     });
 
-    it('should bound `@Input(tableConfig)` to the `config` input of <mp-product-offer-table> component', async () => {
+    it('should bound `@Input(tableConfig)` to the `config` input of <mp-product-offer-table> component', () => {
         const mockTableConfig = {
             config: 'config',
             data: 'data',
             columns: 'columns',
         };
-        const host = await createComponentWrapper(createComponent, { tableConfig: mockTableConfig });
-        const productOfferTableComponent = host.queryCss('mp-product-offer-table');
+        const localHostFixture = TestBed.createComponent(TestHostComponent);
+        localHostFixture.componentRef.setInput('tableConfig', mockTableConfig);
+        localHostFixture.detectChanges();
+
+        const productOfferTableComponent = localHostFixture.debugElement.query(By.css('mp-product-offer-table'));
 
         expect(productOfferTableComponent.properties.config).toEqual(mockTableConfig);
     });
 
-    it('should bound `@Input(tableId)` to the `tableId` input of <mp-product-offer-table> component', async () => {
+    it('should bound `@Input(tableId)` to the `tableId` input of <mp-product-offer-table> component', () => {
         const mockTableId = 'mockTableId';
-        const host = await createComponentWrapper(createComponent, { tableId: mockTableId });
-        const productOfferTableComponent = host.queryCss('mp-product-offer-table');
+        const localHostFixture = TestBed.createComponent(TestHostComponent);
+        localHostFixture.componentRef.setInput('tableId', mockTableId);
+        localHostFixture.detectChanges();
+
+        const productOfferTableComponent = localHostFixture.debugElement.query(By.css('mp-product-offer-table'));
 
         expect(productOfferTableComponent.properties.tableId).toEqual(mockTableId);
     });

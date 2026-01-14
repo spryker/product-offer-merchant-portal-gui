@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation, OnChanges } from '@angular/core';
-import { ToJson } from '@spryker/utils';
+import { jsonAttribute } from '@spryker/utils';
 
 export interface Image {
     src: string;
@@ -7,6 +7,7 @@ export interface Image {
 }
 
 @Component({
+    standalone: false,
     selector: 'mp-image-slider',
     templateUrl: './image-slider.component.html',
     styleUrls: ['./image-slider.component.less'],
@@ -14,7 +15,7 @@ export interface Image {
     encapsulation: ViewEncapsulation.None,
 })
 export class ImageSliderComponent implements OnChanges {
-    @Input() @ToJson() images: Image[];
+    @Input({ transform: jsonAttribute }) images: Image[];
 
     activeImage: Image;
 
