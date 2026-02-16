@@ -35,6 +35,7 @@ class ValidProductOfferPriceIdsOwnByMerchantConstraintValidator extends Abstract
             throw new UnexpectedTypeException($value, PriceProductOfferCollectionTransfer::class);
         }
 
+        // @phpstan-ignore instanceof.alwaysTrue (defensive programming)
         if (!$constraint instanceof ValidProductOfferPriceIdsOwnByMerchantConstraint) {
             throw new UnexpectedTypeException($constraint, ValidProductOfferPriceIdsOwnByMerchantConstraint::class);
         }

@@ -42,6 +42,7 @@ class VolumePriceHasBasePriceProductConstraintValidator extends AbstractConstrai
             throw new UnexpectedTypeException($value, PriceProductOfferCollectionTransfer::class);
         }
 
+        // @phpstan-ignore instanceof.alwaysTrue (defensive programming)
         if (!$constraint instanceof VolumePriceHasBasePriceProductConstraint) {
             throw new UnexpectedTypeException($constraint, VolumePriceHasBasePriceProductConstraint::class);
         }
