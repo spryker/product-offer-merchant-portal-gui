@@ -141,11 +141,6 @@ class ProductOfferGuiTableConfigurationProvider implements GuiTableConfiguration
      */
     protected GuiTableFactoryInterface $guiTableFactory;
 
-    /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToStoreFacadeInterface $storeFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade
-     * @param \Spryker\Shared\GuiTable\GuiTableFactoryInterface $guiTableFactory
-     */
     public function __construct(
         ProductOfferMerchantPortalGuiToStoreFacadeInterface $storeFacade,
         ProductOfferMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade,
@@ -156,9 +151,6 @@ class ProductOfferGuiTableConfigurationProvider implements GuiTableConfiguration
         $this->guiTableFactory = $guiTableFactory;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\GuiTableConfigurationTransfer
-     */
     public function getConfiguration(): GuiTableConfigurationTransfer
     {
         $guiTableConfigurationBuilder = $this->guiTableFactory->createConfigurationBuilder();
@@ -174,11 +166,6 @@ class ProductOfferGuiTableConfigurationProvider implements GuiTableConfiguration
         return $guiTableConfigurationBuilder->createConfiguration();
     }
 
-    /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
-     */
     protected function addColumns(GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder): GuiTableConfigurationBuilderInterface
     {
         $guiTableConfigurationBuilder->addColumnText(static::COL_KEY_OFFER_REFERENCE, 'Reference', true, false)
@@ -203,11 +190,6 @@ class ProductOfferGuiTableConfigurationProvider implements GuiTableConfiguration
         return $guiTableConfigurationBuilder;
     }
 
-    /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
-     */
     protected function addFilters(GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder): GuiTableConfigurationBuilderInterface
     {
         $guiTableConfigurationBuilder->addFilterSelect('hasStock', 'Stock', false, [
@@ -257,11 +239,6 @@ class ProductOfferGuiTableConfigurationProvider implements GuiTableConfiguration
         ];
     }
 
-    /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
-     */
     protected function addRowActions(GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder): GuiTableConfigurationBuilderInterface
     {
         $guiTableConfigurationBuilder->addRowActionDrawerAjaxForm(

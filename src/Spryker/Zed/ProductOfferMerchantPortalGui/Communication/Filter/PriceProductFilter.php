@@ -42,12 +42,6 @@ class PriceProductFilter implements PriceProductFilterInterface
         return $priceProductTransfers;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MoneyValueTransfer $moneyValueTransfer
-     * @param \Generated\Shared\Transfer\PriceProductOfferCriteriaTransfer $priceProductOfferCriteriaTransfer
-     *
-     * @return bool
-     */
     protected function getIsMatchingCurrency(
         MoneyValueTransfer $moneyValueTransfer,
         PriceProductOfferCriteriaTransfer $priceProductOfferCriteriaTransfer
@@ -62,12 +56,6 @@ class PriceProductFilter implements PriceProductFilterInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MoneyValueTransfer $moneyValueTransfer
-     * @param \Generated\Shared\Transfer\PriceProductOfferCriteriaTransfer $priceProductOfferCriteriaTransfer
-     *
-     * @return bool
-     */
     protected function getIsMatchingStore(
         MoneyValueTransfer $moneyValueTransfer,
         PriceProductOfferCriteriaTransfer $priceProductOfferCriteriaTransfer
@@ -82,12 +70,6 @@ class PriceProductFilter implements PriceProductFilterInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param \Generated\Shared\Transfer\PriceProductOfferCriteriaTransfer $priceProductOfferCriteriaTransfer
-     *
-     * @return bool
-     */
     protected function getIsMatchingPriceType(
         PriceProductTransfer $priceProductTransfer,
         PriceProductOfferCriteriaTransfer $priceProductOfferCriteriaTransfer
@@ -102,12 +84,6 @@ class PriceProductFilter implements PriceProductFilterInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param \Generated\Shared\Transfer\PriceProductOfferCriteriaTransfer $priceProductOfferCriteriaTransfer
-     *
-     * @return bool
-     */
     protected function getIsMatchingVolumeQuantity(
         PriceProductTransfer $priceProductTransfer,
         PriceProductOfferCriteriaTransfer $priceProductOfferCriteriaTransfer
@@ -122,12 +98,6 @@ class PriceProductFilter implements PriceProductFilterInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param \Generated\Shared\Transfer\PriceProductOfferCriteriaTransfer $priceProductOfferCriteriaTransfer
-     *
-     * @return bool
-     */
     protected function getIsMatchingPriceProductOfferIds(
         PriceProductTransfer $priceProductTransfer,
         PriceProductOfferCriteriaTransfer $priceProductOfferCriteriaTransfer

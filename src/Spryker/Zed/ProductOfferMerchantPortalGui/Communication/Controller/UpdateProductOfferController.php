@@ -247,11 +247,6 @@ class UpdateProductOfferController extends AbstractProductOfferController
         return array_merge($responseData, $zedUiFormResponseTransfer->toArray());
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
     public function priceTableDataAction(Request $request): Response
     {
         $idProductOffer = (int)$request->get(static::PARAM_ID_PRODUCT_OFFER);

@@ -23,10 +23,6 @@ class PriceProductReader implements PriceProductReaderInterface
      */
     protected PriceProductFilterInterface $priceProductFilter;
 
-    /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductOfferFacadeInterface $priceProductOfferFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Filter\PriceProductFilterInterface $priceProductFilter
-     */
     public function __construct(
         ProductOfferMerchantPortalGuiToPriceProductOfferFacadeInterface $priceProductOfferFacade,
         PriceProductFilterInterface $priceProductFilter

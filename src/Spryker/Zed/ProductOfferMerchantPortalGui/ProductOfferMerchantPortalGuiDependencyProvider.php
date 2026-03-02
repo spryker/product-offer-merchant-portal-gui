@@ -184,11 +184,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
      */
     public const PLUGINS_PRODUCT_OFFER_FORM_VIEW_EXPANDER = 'PLUGINS_PRODUCT_OFFER_FORM_VIEW_EXPANDER';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideCommunicationLayerDependencies(Container $container): Container
     {
         $container = $this->addLocaleFacade($container);
@@ -219,11 +214,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function providePersistenceLayerDependencies(Container $container): Container
     {
         $container = $this->addProductConcretePropelQuery($container);
@@ -236,11 +226,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addLocaleFacade(Container $container): Container
     {
         $container->set(static::FACADE_LOCALE, function (Container $container) {
@@ -252,11 +237,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addUtilEncodingService(Container $container): Container
     {
         $container->set(static::SERVICE_UTIL_ENCODING, function (Container $container) {
@@ -268,11 +248,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addPriceProductVolumeService(Container $container): Container
     {
         $container->set(static::SERVICE_PRICE_PRODUCT_VOLUME, function (Container $container) {
@@ -284,11 +259,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addMerchantUserFacade(Container $container): Container
     {
         $container->set(static::FACADE_MERCHANT_USER, function (Container $container) {
@@ -300,11 +270,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addTranslatorFacade(Container $container): Container
     {
         $container->set(static::FACADE_TRANSLATOR, function (Container $container) {
@@ -316,11 +281,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addStoreFacade(Container $container): Container
     {
         $container->set(static::FACADE_STORE, function (Container $container) {
@@ -332,11 +292,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductFacade(Container $container): Container
     {
         $container->set(static::FACADE_PRODUCT, function (Container $container) {
@@ -348,11 +303,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductOfferFacade(Container $container): Container
     {
         $container->set(static::FACADE_PRODUCT_OFFER, function (Container $container) {
@@ -364,11 +314,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addMerchantStockFacade(Container $container): Container
     {
         $container->set(static::FACADE_MERCHANT_STOCK, function (Container $container) {
@@ -380,11 +325,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addCurrencyFacade(Container $container): Container
     {
         $container->set(static::FACADE_CURRENCY, function (Container $container) {
@@ -396,11 +336,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addPriceProductFacade(Container $container): Container
     {
         $container->set(static::FACADE_PRICE_PRODUCT, function (Container $container) {
@@ -412,11 +347,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addRouterFacade(Container $container): Container
     {
         $container->set(static::FACADE_ROUTER, function (Container $container) {
@@ -428,11 +358,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addTwigEnvironment(Container $container): Container
     {
         $container->set(static::SERVICE_TWIG, function (Container $container) {
@@ -442,11 +367,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addGuiTableHttpDataRequestHandler(Container $container): Container
     {
         $container->set(static::SERVICE_GUI_TABLE_HTTP_DATA_REQUEST_EXECUTOR, function (Container $container) {
@@ -456,11 +376,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addGuiTableFactory(Container $container): Container
     {
         $container->set(static::SERVICE_GUI_TABLE_FACTORY, function (Container $container) {
@@ -470,11 +385,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addZedUiFactory(Container $container): Container
     {
         $container->set(static::SERVICE_ZED_UI_FACTORY, function (Container $container) {
@@ -484,11 +394,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductConcretePropelQuery(Container $container): Container
     {
         $container->set(static::PROPEL_QUERY_PRODUCT_CONCRETE, $container->factory(function () {
@@ -498,11 +403,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductImagePropelQuery(Container $container): Container
     {
         $container->set(static::PROPEL_QUERY_PRODUCT_IMAGE, $container->factory(function () {
@@ -512,11 +412,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductOfferPropelQuery(Container $container): Container
     {
         $container->set(static::PROPEL_QUERY_PRODUCT_OFFER, $container->factory(function () {
@@ -526,11 +421,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addStorePropelQuery(Container $container): Container
     {
         $container->set(static::PROPEL_QUERY_STORE, $container->factory(function () {
@@ -540,11 +430,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductOfferStorePropelQuery(Container $container): Container
     {
         $container->set(static::PROPEL_QUERY_PRODUCT_OFFER_STORE, $container->factory(function () {
@@ -554,11 +439,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addPriceProductOfferFacade(Container $container): Container
     {
         $container->set(static::FACADE_PRICE_PRODUCT_OFFER, function (Container $container) {
@@ -570,11 +450,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addPriceProductOfferVolumeFacade(Container $container): Container
     {
         $container->set(static::FACADE_PRICE_PRODUCT_OFFER_VOLUME, function (Container $container) {
@@ -586,11 +461,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addValidationAdapter(Container $container): Container
     {
         $container->set(static::EXTERNAL_ADAPTER_VALIDATION, function () {
@@ -600,11 +470,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addMoneyFacade(Container $container): Container
     {
         $container->set(static::FACADE_MONEY, function (Container $container) {
@@ -616,11 +481,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductTableExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_PRODUCT_TABLE_EXPANDER, function (Container $container) {
@@ -630,11 +490,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductOfferFormExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_PRODUCT_OFFER_FORM_EXPANDER, function () {
@@ -644,11 +499,6 @@ class ProductOfferMerchantPortalGuiDependencyProvider extends AbstractBundleDepe
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductOfferFormViewExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_PRODUCT_OFFER_FORM_VIEW_EXPANDER, function () {

@@ -13,11 +13,6 @@ use Generated\Shared\Transfer\ProductOfferTransfer;
 
 interface ProductOfferCreateFormDataProviderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOfferTransfer
-     */
     public function getData(ProductConcreteTransfer $productConcreteTransfer): ProductOfferTransfer;
 
     /**

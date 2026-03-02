@@ -53,19 +53,11 @@ class ProductOfferStockForm extends AbstractType
      */
     protected const DECIMAL_QUANTITY_VALIDATION_PATTERN = '/^\d{1,10}(\.\d{1,10})?$/';
 
-    /**
-     * @return string
-     */
     public function getBlockPrefix(): string
     {
         return 'productOfferStock';
     }
 
-    /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
-     *
-     * @return void
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);

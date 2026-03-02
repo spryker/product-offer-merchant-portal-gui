@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\ProductOfferTransfer;
 
 interface ProductOfferUpdateFormDataProviderInterface
 {
-    /**
-     * @param int $idProductOffer
-     *
-     * @return \Generated\Shared\Transfer\ProductOfferTransfer|null
-     */
     public function getData(int $idProductOffer): ?ProductOfferTransfer;
 
     /**

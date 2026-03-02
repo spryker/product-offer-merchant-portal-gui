@@ -12,21 +12,11 @@ use Generated\Shared\Transfer\ProductOfferTransfer;
 
 class ProductOfferCreateFormDataProvider extends AbstractProductOfferFormDataProvider implements ProductOfferCreateFormDataProviderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOfferTransfer
-     */
     public function getData(ProductConcreteTransfer $productConcreteTransfer): ProductOfferTransfer
     {
         return $this->addDefaultValues($productConcreteTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOfferTransfer
-     */
     protected function addDefaultValues(
         ProductConcreteTransfer $productConcreteTransfer
     ): ProductOfferTransfer {

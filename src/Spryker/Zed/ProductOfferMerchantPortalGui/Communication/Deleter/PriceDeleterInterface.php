@@ -12,12 +12,6 @@ use Generated\Shared\Transfer\ValidationResponseTransfer;
 
 interface PriceDeleterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer
-     * @param int $quantity
-     *
-     * @return \Generated\Shared\Transfer\ValidationResponseTransfer
-     */
     public function deletePriceByQuantity(
         PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer,
         int $quantity

@@ -35,11 +35,6 @@ abstract class AbstractProductOfferFormDataProvider
      */
     protected ProductOfferMerchantPortalGuiToMerchantStockFacadeInterface $merchantStockFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToProductFacadeInterface $productFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMerchantStockFacadeInterface $merchantStockFacade
-     */
     public function __construct(
         ProductOfferMerchantPortalGuiToProductFacadeInterface $productFacade,
         ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade,

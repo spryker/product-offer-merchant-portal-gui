@@ -33,11 +33,6 @@ class PriceProductOfferValidator implements PriceProductOfferValidatorInterface
      */
     protected ProductOfferMerchantPortalGuiToPriceProductOfferFacadeInterface $priceProductOfferFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\External\ProductOfferMerchantPortalGuiToValidationAdapterInterface $validationAdapter
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Validator\PriceProductOffer\PriceProductOfferConstraintProviderInterface $priceProductOfferConstraintProvider
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductOfferFacadeInterface $priceProductOfferFacade
-     */
     public function __construct(
         ProductOfferMerchantPortalGuiToValidationAdapterInterface $validationAdapter,
         PriceProductOfferConstraintProviderInterface $priceProductOfferConstraintProvider,
@@ -48,11 +43,6 @@ class PriceProductOfferValidator implements PriceProductOfferValidatorInterface
         $this->priceProductOfferFacade = $priceProductOfferFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\ValidationResponseTransfer
-     */
     public function validatePriceProductOfferCollection(
         PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer
     ): ValidationResponseTransfer {
@@ -97,12 +87,6 @@ class PriceProductOfferValidator implements PriceProductOfferValidatorInterface
         return $validationResponseTransfer;
     }
 
-    /**
-     * @param \Symfony\Component\Validator\ConstraintViolationInterface $constraintViolation
-     * @param \Generated\Shared\Transfer\ValidationErrorTransfer $validationErrorTransfer
-     *
-     * @return \Generated\Shared\Transfer\ValidationErrorTransfer
-     */
     protected function mapConstraintViolationToValidationErrorTransfer(
         ConstraintViolationInterface $constraintViolation,
         ValidationErrorTransfer $validationErrorTransfer

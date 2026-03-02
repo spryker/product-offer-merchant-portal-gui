@@ -60,11 +60,6 @@ class ProductOfferMerchantPortalGuiCommunicationTester extends Actor
         return Stub::make(ProductOfferMerchantPortalGuiCommunicationFactory::class, $params);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\DataProvider\PriceProductOfferDataProviderInterface
-     */
     public function createPriceProductOfferDataProviderMock(PriceProductTransfer $priceProductTransfer): PriceProductOfferDataProviderInterface
     {
         return Stub::make(

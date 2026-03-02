@@ -24,22 +24,11 @@ class ProductOfferMerchantPortalGuiToPriceProductVolumeServiceBridge implements 
         $this->priceProductVolumeService = $priceProductVolumeService;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return bool
-     */
     public function hasVolumePrices(PriceProductTransfer $priceProductTransfer): bool
     {
         return $this->priceProductVolumeService->hasVolumePrices($priceProductTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $newVolumePriceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     public function addVolumePrice(
         PriceProductTransfer $priceProductTransfer,
         PriceProductTransfer $newVolumePriceProductTransfer
@@ -47,12 +36,6 @@ class ProductOfferMerchantPortalGuiToPriceProductVolumeServiceBridge implements 
         return $this->priceProductVolumeService->addVolumePrice($priceProductTransfer, $newVolumePriceProductTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $volumePriceProductTransferToDelete
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     public function deleteVolumePrice(
         PriceProductTransfer $priceProductTransfer,
         PriceProductTransfer $volumePriceProductTransferToDelete
@@ -61,12 +44,6 @@ class ProductOfferMerchantPortalGuiToPriceProductVolumeServiceBridge implements 
             ->deleteVolumePrice($priceProductTransfer, $volumePriceProductTransferToDelete);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $volumePriceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer|null
-     */
     public function extractVolumePrice(
         PriceProductTransfer $priceProductTransfer,
         PriceProductTransfer $volumePriceProductTransfer

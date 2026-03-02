@@ -14,27 +14,16 @@ use Laminas\Filter\Word\CamelCaseToUnderscore;
 
 class ColumnIdCreator implements ColumnIdCreatorInterface
 {
-    /**
-     * @return string
-     */
     public function createStoreColumnId(): string
     {
         return PriceProductOfferTableViewTransfer::STORE;
     }
 
-    /**
-     * @return string
-     */
     public function createCurrencyColumnId(): string
     {
         return PriceProductOfferTableViewTransfer::CURRENCY;
     }
 
-    /**
-     * @param string $priceTypeName
-     *
-     * @return string
-     */
     public function createGrossAmountColumnId(string $priceTypeName): string
     {
         return $this->createPriceKey(
@@ -43,11 +32,6 @@ class ColumnIdCreator implements ColumnIdCreatorInterface
         );
     }
 
-    /**
-     * @param string $priceTypeName
-     *
-     * @return string
-     */
     public function createNetAmountColumnId(string $priceTypeName): string
     {
         return $this->createPriceKey(
@@ -56,9 +40,6 @@ class ColumnIdCreator implements ColumnIdCreatorInterface
         );
     }
 
-    /**
-     * @return string
-     */
     public function createVolumeQuantityColumnId(): string
     {
         /** @var string $idVolumeQuantity */
@@ -68,12 +49,6 @@ class ColumnIdCreator implements ColumnIdCreatorInterface
         return strtolower($idVolumeQuantity);
     }
 
-    /**
-     * @param string $priceTypeName
-     * @param string $moneyValueType
-     *
-     * @return string
-     */
     public function createPriceKey(string $priceTypeName, string $moneyValueType): string
     {
         return sprintf(

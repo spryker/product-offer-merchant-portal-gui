@@ -11,8 +11,5 @@ use Generated\Shared\Transfer\MerchantDashboardCardTransfer;
 
 interface OffersDashboardCardProviderInterface
 {
-    /**
-     * @return \Generated\Shared\Transfer\MerchantDashboardCardTransfer
-     */
     public function getDashboardCard(): MerchantDashboardCardTransfer;
 }

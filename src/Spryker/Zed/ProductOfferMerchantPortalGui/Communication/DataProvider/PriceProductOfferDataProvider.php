@@ -31,11 +31,6 @@ class PriceProductOfferDataProvider implements PriceProductOfferDataProviderInte
      */
     protected PriceProductFilterInterface $priceProductFilter;
 
-    /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToProductOfferFacadeInterface $productOfferFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Filter\PriceProductFilterInterface $priceProductFilter
-     */
     public function __construct(
         ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade,
         ProductOfferMerchantPortalGuiToProductOfferFacadeInterface $productOfferFacade,

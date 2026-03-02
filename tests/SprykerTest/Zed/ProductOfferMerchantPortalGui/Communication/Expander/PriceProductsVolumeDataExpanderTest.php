@@ -39,9 +39,6 @@ class PriceProductsVolumeDataExpanderTest extends Unit
      */
     protected ProductOfferMerchantPortalGuiCommunicationTester $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandPriceProductsWithVolumeDataExpandsExistingVolumeData(): void
     {
         // Arrange
@@ -76,9 +73,6 @@ class PriceProductsVolumeDataExpanderTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testExpandPriceProductsWithVolumeDataAddsNewVolumeData(): void
     {
         // Arrange

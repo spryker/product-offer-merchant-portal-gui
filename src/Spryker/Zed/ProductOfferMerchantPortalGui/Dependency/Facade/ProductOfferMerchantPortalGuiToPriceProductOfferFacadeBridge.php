@@ -28,41 +28,21 @@ class ProductOfferMerchantPortalGuiToPriceProductOfferFacadeBridge implements Pr
         $this->priceProductOfferFacade = $priceProductOfferFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOfferTransfer $productOfferTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOfferTransfer
-     */
     public function saveProductOfferPrices(ProductOfferTransfer $productOfferTransfer): ProductOfferTransfer
     {
         return $this->priceProductOfferFacade->saveProductOfferPrices($productOfferTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfers
-     *
-     * @return \Generated\Shared\Transfer\ValidationResponseTransfer
-     */
     public function validateProductOfferPrices(PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfers): ValidationResponseTransfer
     {
         return $this->priceProductOfferFacade->validateProductOfferPrices($priceProductOfferCollectionTransfers);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer
-     *
-     * @return void
-     */
     public function deleteProductOfferPrices(PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer): void
     {
         $this->priceProductOfferFacade->deleteProductOfferPrices($priceProductOfferCollectionTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferCriteriaTransfer $priceProductOfferCriteriaTransfer
-     *
-     * @return int
-     */
     public function count(PriceProductOfferCriteriaTransfer $priceProductOfferCriteriaTransfer): int
     {
         return $this->priceProductOfferFacade->count($priceProductOfferCriteriaTransfer);

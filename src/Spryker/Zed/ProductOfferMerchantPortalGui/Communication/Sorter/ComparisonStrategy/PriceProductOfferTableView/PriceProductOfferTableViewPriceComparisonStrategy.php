@@ -31,29 +31,16 @@ class PriceProductOfferTableViewPriceComparisonStrategy implements PriceProductO
      */
     protected ColumnIdCreatorInterface $columnIdCreator;
 
-    /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\GuiTable\Column\ColumnIdCreatorInterface $columnIdCreator
-     */
     public function __construct(ColumnIdCreatorInterface $columnIdCreator)
     {
         $this->columnIdCreator = $columnIdCreator;
     }
 
-    /**
-     * @param string $fieldName
-     *
-     * @return bool
-     */
     public function isApplicable(string $fieldName): bool
     {
         return $this->isPriceField($fieldName);
     }
 
-    /**
-     * @param string $fieldName
-     *
-     * @return callable
-     */
     public function getValueExtractorFunction(string $fieldName): callable
     {
         [$priceTypeName, $moneyValueType] = explode('_', $fieldName);
@@ -73,11 +60,6 @@ class PriceProductOfferTableViewPriceComparisonStrategy implements PriceProductO
         };
     }
 
-    /**
-     * @param string $fieldName
-     *
-     * @return bool
-     */
     protected function isPriceField(string $fieldName): bool
     {
         $pattern = sprintf(

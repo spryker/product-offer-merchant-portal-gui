@@ -16,17 +16,11 @@ class VolumePriceHasBasePriceProductConstraint extends SymfonyConstraint
      */
     protected const MESSAGE = 'A Price for Quantity of 2 or above requires a Price for 1 for this set of inputs Store, Currency, and Quantity.';
 
-    /**
-     * @return string
-     */
     public function getMessage(): string
     {
         return static::MESSAGE;
     }
 
-    /**
-     * @return string
-     */
     public function getTargets(): string
     {
         return static::CLASS_CONSTRAINT;

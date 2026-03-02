@@ -43,13 +43,6 @@ class OffersDashboardCardProvider implements OffersDashboardCardProviderInterfac
      */
     protected Environment $twigEnvironment;
 
-    /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Persistence\ProductOfferMerchantPortalGuiRepositoryInterface $productOfferMerchantPortalGuiRepository
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToRouterFacadeInterface $routerFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\ProductOfferMerchantPortalGuiConfig $productOfferMerchantPortalGuiConfig
-     * @param \Twig\Environment $twigEnvironment
-     */
     public function __construct(
         ProductOfferMerchantPortalGuiRepositoryInterface $productOfferMerchantPortalGuiRepository,
         ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade,
@@ -64,9 +57,6 @@ class OffersDashboardCardProvider implements OffersDashboardCardProviderInterfac
         $this->twigEnvironment = $twigEnvironment;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\MerchantDashboardCardTransfer
-     */
     public function getDashboardCard(): MerchantDashboardCardTransfer
     {
         $idMerchant = $this->merchantUserFacade

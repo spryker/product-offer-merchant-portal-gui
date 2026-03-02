@@ -58,19 +58,11 @@ class ProductOfferValidityForm extends AbstractType
      */
     protected const PLACEHOLDER_VALID_TO = 'To';
 
-    /**
-     * @return string
-     */
     public function getBlockPrefix(): string
     {
         return 'productOfferValidity';
     }
 
-    /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
-     *
-     * @return void
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);

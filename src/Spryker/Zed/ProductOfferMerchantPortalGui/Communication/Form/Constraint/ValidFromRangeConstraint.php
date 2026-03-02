@@ -11,9 +11,6 @@ use Symfony\Component\Validator\Constraint as SymfonyConstraint;
 
 class ValidFromRangeConstraint extends SymfonyConstraint
 {
-    /**
-     * @return string
-     */
     public function getTargets(): string
     {
         return static::CLASS_CONSTRAINT;

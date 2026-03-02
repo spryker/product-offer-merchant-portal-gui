@@ -16,11 +16,6 @@ interface ProductOfferMerchantPortalGuiToCurrencyFacadeInterface
      */
     public function getAllStoresWithCurrencies(): array;
 
-    /**
-     * @param string $isoCode
-     *
-     * @return \Generated\Shared\Transfer\CurrencyTransfer|null
-     */
     public function findCurrencyByIsoCode(string $isoCode): ?CurrencyTransfer;
 
     /**

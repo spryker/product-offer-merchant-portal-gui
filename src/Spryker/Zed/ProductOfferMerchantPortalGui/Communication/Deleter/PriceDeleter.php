@@ -37,11 +37,6 @@ class PriceDeleter implements PriceDeleterInterface
      */
     protected PriceProductOfferValidatorInterface $priceProductOfferValidator;
 
-    /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductOfferFacadeInterface $priceProductOfferFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Service\ProductOfferMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Validator\PriceProductOffer\PriceProductOfferValidatorInterface $priceProductOfferValidator
-     */
     public function __construct(
         ProductOfferMerchantPortalGuiToPriceProductOfferFacadeInterface $priceProductOfferFacade,
         ProductOfferMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService,
@@ -52,12 +47,6 @@ class PriceDeleter implements PriceDeleterInterface
         $this->priceProductOfferValidator = $priceProductOfferValidator;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer
-     * @param int $quantity
-     *
-     * @return \Generated\Shared\Transfer\ValidationResponseTransfer
-     */
     public function deletePriceByQuantity(
         PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer,
         int $quantity
@@ -81,12 +70,6 @@ class PriceDeleter implements PriceDeleterInterface
         return $validationResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer
-     * @param int $quantity
-     *
-     * @return \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer
-     */
     protected function deletePriceByQuantityFromPriceProductOfferCollection(
         PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer,
         int $quantity
@@ -107,11 +90,6 @@ class PriceDeleter implements PriceDeleterInterface
         return $priceProductOfferCollectionTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     protected function deleteBasePriceFromPriceProductOfferCollection(
         PriceProductTransfer $priceProductTransfer
     ): PriceProductTransfer {
@@ -125,12 +103,6 @@ class PriceDeleter implements PriceDeleterInterface
         return $priceProductTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param int $quantity
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     protected function deleteVolumePriceFromPriceProductOfferCollection(
         PriceProductTransfer $priceProductTransfer,
         int $quantity
@@ -141,12 +113,6 @@ class PriceDeleter implements PriceDeleterInterface
             ->deleteVolumePrice($priceProductTransfer, $volumePriceProductTransferToDelete);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer
-     * @param int $quantity
-     *
-     * @return void
-     */
     protected function executeDeletion(
         PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer,
         int $quantity
@@ -162,12 +128,6 @@ class PriceDeleter implements PriceDeleterInterface
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer
-     * @param int $quantity
-     *
-     * @return \Generated\Shared\Transfer\ValidationResponseTransfer
-     */
     protected function validatePriceProductOfferCollection(
         PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer,
         int $quantity
@@ -194,12 +154,6 @@ class PriceDeleter implements PriceDeleterInterface
         return $validationResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer
-     * @param \Generated\Shared\Transfer\ValidationResponseTransfer $generalValidationResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\ValidationResponseTransfer
-     */
     protected function executePriceProductOfferValidator(
         PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer,
         ValidationResponseTransfer $generalValidationResponseTransfer

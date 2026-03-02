@@ -32,21 +32,11 @@ class ProductOfferMerchantPortalGuiToCurrencyFacadeBridge implements ProductOffe
         return $this->currencyFacade->getAllStoresWithCurrencies();
     }
 
-    /**
-     * @param string $isoCode
-     *
-     * @return \Generated\Shared\Transfer\CurrencyTransfer|null
-     */
     public function findCurrencyByIsoCode(string $isoCode): ?CurrencyTransfer
     {
         return $this->currencyFacade->findCurrencyByIsoCode($isoCode);
     }
 
-    /**
-     * @param int $idCurrency
-     *
-     * @return \Generated\Shared\Transfer\CurrencyTransfer
-     */
     public function getByIdCurrency(int $idCurrency): CurrencyTransfer
     {
         return $this->currencyFacade->getByIdCurrency($idCurrency);

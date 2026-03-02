@@ -62,13 +62,6 @@ class ProductOfferGuiTableDataProvider extends AbstractGuiTableDataProvider
      */
     protected ProductOfferMerchantPortalGuiToLocaleFacadeInterface $localeFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Persistence\ProductOfferMerchantPortalGuiRepositoryInterface $productOfferMerchantPortalGuiRepository
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Builder\ProductNameBuilderInterface $productNameBuilder
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToLocaleFacadeInterface $localeFacade
-     */
     public function __construct(
         ProductOfferMerchantPortalGuiRepositoryInterface $productOfferMerchantPortalGuiRepository,
         ProductOfferMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade,
@@ -83,11 +76,6 @@ class ProductOfferGuiTableDataProvider extends AbstractGuiTableDataProvider
         $this->localeFacade = $localeFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GuiTableDataRequestTransfer $guiTableDataRequestTransfer
-     *
-     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
-     */
     protected function createCriteria(GuiTableDataRequestTransfer $guiTableDataRequestTransfer): AbstractTransfer
     {
         return (new ProductOfferTableCriteriaTransfer())
@@ -135,12 +123,6 @@ class ProductOfferGuiTableDataProvider extends AbstractGuiTableDataProvider
             ->setTotal($paginationTransfer->getNbResultsOrFail());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOfferTransfer $productOfferTransfer
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return string|null
-     */
     protected function getNameColumnData(ProductOfferTransfer $productOfferTransfer, LocaleTransfer $localeTransfer): ?string
     {
         $productConcreteTransfer = (new ProductConcreteTransfer())
@@ -167,11 +149,6 @@ class ProductOfferGuiTableDataProvider extends AbstractGuiTableDataProvider
         return $storeNames;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOfferTransfer $productOfferTransfer
-     *
-     * @return int|null
-     */
     protected function getStockColumnData(ProductOfferTransfer $productOfferTransfer): ?int
     {
         if (!$productOfferTransfer->getProductOfferStocks()->count()) {
@@ -186,11 +163,6 @@ class ProductOfferGuiTableDataProvider extends AbstractGuiTableDataProvider
         return $quantity === null ? $quantity : $quantity->toInt();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOfferTransfer $productOfferTransfer
-     *
-     * @return string
-     */
     protected function getStatusColumnData(ProductOfferTransfer $productOfferTransfer): string
     {
         if ($productOfferTransfer->getIsActive()) {
@@ -200,11 +172,6 @@ class ProductOfferGuiTableDataProvider extends AbstractGuiTableDataProvider
         return $this->translatorFacade->trans(ProductOfferGuiTableConfigurationProvider::COLUMN_DATA_STATUS_INACTIVE);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOfferTransfer $productOfferTransfer
-     *
-     * @return string|null
-     */
     protected function getValidFromColumnData(ProductOfferTransfer $productOfferTransfer): ?string
     {
         $productOfferValidityTransfer = $productOfferTransfer->getProductOfferValidity();
@@ -216,11 +183,6 @@ class ProductOfferGuiTableDataProvider extends AbstractGuiTableDataProvider
         return $productOfferValidityTransfer->getValidFrom();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOfferTransfer $productOfferTransfer
-     *
-     * @return string|null
-     */
     protected function getValidToColumnData(ProductOfferTransfer $productOfferTransfer): ?string
     {
         $productOfferValidityTransfer = $productOfferTransfer->getProductOfferValidity();
@@ -232,11 +194,6 @@ class ProductOfferGuiTableDataProvider extends AbstractGuiTableDataProvider
         return $productOfferValidityTransfer->getValidTo();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOfferTransfer $productOfferTransfer
-     *
-     * @return string|null
-     */
     protected function getImageUrl(ProductOfferTransfer $productOfferTransfer): ?string
     {
         return isset($productOfferTransfer->getProductImages()[0])
@@ -244,11 +201,6 @@ class ProductOfferGuiTableDataProvider extends AbstractGuiTableDataProvider
             : null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOfferTransfer $productOfferTransfer
-     *
-     * @return string
-     */
     protected function getApprovalStatusColumnData(ProductOfferTransfer $productOfferTransfer): string
     {
         if ($productOfferTransfer->getApprovalStatus() === static::APPROVAL_STATUS_WAITING_FOR_APPROVAL) {

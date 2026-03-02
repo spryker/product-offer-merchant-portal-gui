@@ -38,11 +38,6 @@ class PriceProductOfferTableDataMapper implements PriceProductOfferTableDataMapp
      */
     protected ColumnIdCreatorInterface $columnIdCreator;
 
-    /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToStoreFacadeInterface $storeFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\GuiTable\Column\ColumnIdCreatorInterface $columnIdCreator
-     */
     public function __construct(
         ProductOfferMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade,
         ProductOfferMerchantPortalGuiToStoreFacadeInterface $storeFacade,
@@ -115,13 +110,6 @@ class PriceProductOfferTableDataMapper implements PriceProductOfferTableDataMapp
         return $priceProductOfferTableViewCollectionTransfer;
     }
 
-    /**
-     * @param string $storeName
-     * @param string $currencyCode
-     * @param int $volumeQuantity
-     *
-     * @return string
-     */
     protected function createPriceProductOfferTableViewRowKey(
         string $storeName,
         string $currencyCode,
@@ -261,11 +249,6 @@ class PriceProductOfferTableDataMapper implements PriceProductOfferTableDataMapp
         return $storeIdToNameMapping;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return string
-     */
     protected function prepareTypePriceProductOfferId(PriceProductTransfer $priceProductTransfer): string
     {
         return sprintf(

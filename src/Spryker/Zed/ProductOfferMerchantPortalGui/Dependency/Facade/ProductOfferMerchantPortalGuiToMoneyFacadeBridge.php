@@ -22,21 +22,11 @@ class ProductOfferMerchantPortalGuiToMoneyFacadeBridge implements ProductOfferMe
         $this->moneyFacade = $moneyFacade;
     }
 
-    /**
-     * @param int $value
-     *
-     * @return float
-     */
     public function convertIntegerToDecimal(int $value): float
     {
         return $this->moneyFacade->convertIntegerToDecimal($value);
     }
 
-    /**
-     * @param float $value
-     *
-     * @return int
-     */
     public function convertDecimalToInteger(float $value): int
     {
         return $this->moneyFacade->convertDecimalToInteger($value);

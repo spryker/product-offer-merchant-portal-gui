@@ -24,9 +24,6 @@ use Spryker\Zed\ProductOfferMerchantPortalGui\ProductOfferMerchantPortalGuiDepen
  */
 class ProductOfferMerchantPortalGuiPersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Spryker\Zed\ProductOfferMerchantPortalGui\Persistence\Propel\ProductTableDataMapper
-     */
     public function createProductTableDataMapper(): ProductTableDataMapper
     {
         return new ProductTableDataMapper(
@@ -34,9 +31,6 @@ class ProductOfferMerchantPortalGuiPersistenceFactory extends AbstractPersistenc
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductOfferMerchantPortalGui\Persistence\Propel\ProductOfferTableDataMapper
-     */
     public function createProductOfferTableDataMapper(): ProductOfferTableDataMapper
     {
         return new ProductOfferTableDataMapper(
@@ -44,49 +38,31 @@ class ProductOfferMerchantPortalGuiPersistenceFactory extends AbstractPersistenc
         );
     }
 
-    /**
-     * @return \Orm\Zed\Product\Persistence\SpyProductQuery
-     */
     public function getProductConcretePropelQuery(): SpyProductQuery
     {
         return $this->getProvidedDependency(ProductOfferMerchantPortalGuiDependencyProvider::PROPEL_QUERY_PRODUCT_CONCRETE);
     }
 
-    /**
-     * @return \Orm\Zed\ProductImage\Persistence\SpyProductImageQuery
-     */
     public function getProductImagePropelQuery(): SpyProductImageQuery
     {
         return $this->getProvidedDependency(ProductOfferMerchantPortalGuiDependencyProvider::PROPEL_QUERY_PRODUCT_IMAGE);
     }
 
-    /**
-     * @return \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery
-     */
     public function getProductOfferPropelQuery(): SpyProductOfferQuery
     {
         return $this->getProvidedDependency(ProductOfferMerchantPortalGuiDependencyProvider::PROPEL_QUERY_PRODUCT_OFFER);
     }
 
-    /**
-     * @return \Orm\Zed\Store\Persistence\SpyStoreQuery
-     */
     public function getStorePropelQuery(): SpyStoreQuery
     {
         return $this->getProvidedDependency(ProductOfferMerchantPortalGuiDependencyProvider::PROPEL_QUERY_STORE);
     }
 
-    /**
-     * @return \Orm\Zed\ProductOffer\Persistence\SpyProductOfferStoreQuery
-     */
     public function getProductOfferStorePropelQuery(): SpyProductOfferStoreQuery
     {
         return $this->getProvidedDependency(ProductOfferMerchantPortalGuiDependencyProvider::PROPEL_QUERY_PRODUCT_OFFER_STORE);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Service\ProductOfferMerchantPortalGuiToUtilEncodingServiceInterface
-     */
     public function getUtilEncodingService(): ProductOfferMerchantPortalGuiToUtilEncodingServiceInterface
     {
         return $this->getProvidedDependency(ProductOfferMerchantPortalGuiDependencyProvider::SERVICE_UTIL_ENCODING);

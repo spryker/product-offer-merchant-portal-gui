@@ -9,17 +9,7 @@ namespace Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade;
 
 interface ProductOfferMerchantPortalGuiToMoneyFacadeInterface
 {
-    /**
-     * @param int $value
-     *
-     * @return float
-     */
     public function convertIntegerToDecimal(int $value): float;
 
-    /**
-     * @param float $value
-     *
-     * @return int
-     */
     public function convertDecimalToInteger(float $value): int;
 }

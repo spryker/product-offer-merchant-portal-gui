@@ -42,11 +42,6 @@ class DeletePriceProductOfferController extends AbstractPriceProductOfferControl
      */
     protected const PARAM_QUANTITY = 'quantity';
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function indexAction(Request $request): JsonResponse
     {
         $productOfferId = $this->castId($request->get(static::PARAM_PRODUCT_OFFER_ID));
@@ -74,11 +69,6 @@ class DeletePriceProductOfferController extends AbstractPriceProductOfferControl
         return $this->createSuccessJsonResponse();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer
-     *
-     * @return bool
-     */
     protected function validatePriceProductOfferIds(PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer): bool
     {
         $constraintViolationList = $this->getFactory()
@@ -151,12 +141,6 @@ class DeletePriceProductOfferController extends AbstractPriceProductOfferControl
         return $priceProductOfferCollectionTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer
-     * @param int $quantity
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse|null
-     */
     protected function deleteProductOfferPrices(
         PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer,
         int $quantity

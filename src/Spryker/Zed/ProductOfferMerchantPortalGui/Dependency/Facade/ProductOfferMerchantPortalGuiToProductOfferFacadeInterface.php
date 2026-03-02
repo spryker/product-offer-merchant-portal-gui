@@ -14,31 +14,11 @@ use Generated\Shared\Transfer\ProductOfferTransfer;
 
 interface ProductOfferMerchantPortalGuiToProductOfferFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductOfferCriteriaTransfer $productOfferCriteria
-     *
-     * @return \Generated\Shared\Transfer\ProductOfferCollectionTransfer
-     */
     public function get(ProductOfferCriteriaTransfer $productOfferCriteria): ProductOfferCollectionTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOfferCriteriaTransfer $productOfferCriteria
-     *
-     * @return \Generated\Shared\Transfer\ProductOfferTransfer|null
-     */
     public function findOne(ProductOfferCriteriaTransfer $productOfferCriteria): ?ProductOfferTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOfferTransfer $productOfferTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOfferTransfer
-     */
     public function create(ProductOfferTransfer $productOfferTransfer): ProductOfferTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOfferTransfer $productOfferTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOfferResponseTransfer
-     */
     public function update(ProductOfferTransfer $productOfferTransfer): ProductOfferResponseTransfer;
 }

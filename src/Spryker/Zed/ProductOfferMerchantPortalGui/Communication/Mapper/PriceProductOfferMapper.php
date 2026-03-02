@@ -64,14 +64,6 @@ class PriceProductOfferMapper
      */
     protected ColumnIdCreatorInterface $columnIdCreator;
 
-    /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMoneyFacadeInterface $moneyFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductOfferVolumeFacadeInterface $priceProductOfferVolumeFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Service\ProductOfferMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Validator\PriceProductOffer\PropertyPath\PriceProductOfferPropertyPathAnalyzerInterface $propertyPathAnalyzer
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\GuiTable\Column\ColumnIdCreatorInterface $columnIdCreator
-     */
     public function __construct(
         ProductOfferMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade,
         ProductOfferMerchantPortalGuiToMoneyFacadeInterface $moneyFacade,
@@ -266,13 +258,6 @@ class PriceProductOfferMapper
         return $initialData;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer
-     * @param string $propertyPath
-     * @param bool $isVolumePriceViolation
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     protected function extractInvalidPriceProduct(
         PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer,
         string $propertyPath,
@@ -418,13 +403,6 @@ class PriceProductOfferMapper
         return $this->moneyFacade->convertDecimalToInteger((float)$value);
     }
 
-    /**
-     * @param string $requestDataKey
-     * @param string $requestDataValue
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     public function mapMoneyValuesToPriceProductTransfer(
         string $requestDataKey,
         string $requestDataValue,

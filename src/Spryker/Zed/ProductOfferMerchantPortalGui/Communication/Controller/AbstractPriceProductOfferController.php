@@ -26,9 +26,6 @@ class AbstractPriceProductOfferController extends AbstractController
      */
     protected const RESPONSE_NOTIFICATION_MESSAGE_ERROR = 'Something went wrong, please try again.';
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     protected function createSuccessJsonResponse(): JsonResponse
     {
         $zedUiFormResponseTransfer = $this->getFactory()
@@ -43,11 +40,6 @@ class AbstractPriceProductOfferController extends AbstractController
         return new JsonResponse($zedUiFormResponseTransfer->toArray());
     }
 
-    /**
-     * @param string|null $message
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     protected function createErrorJsonResponse(?string $message = null): JsonResponse
     {
         $message = $this->getFactory()->getTranslatorFacade()->trans(

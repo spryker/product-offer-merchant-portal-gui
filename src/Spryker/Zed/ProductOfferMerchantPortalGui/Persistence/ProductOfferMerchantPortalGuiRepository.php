@@ -82,11 +82,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
      */
     protected const COL_TYPE_PRICE_PRODUCT_OFFER_IDS = 'type_price_product_offer_ids';
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductTableCriteriaTransfer $productTableCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteCollectionTransfer
-     */
     public function getProductTableData(ProductTableCriteriaTransfer $productTableCriteriaTransfer): ProductConcreteCollectionTransfer
     {
         $productConcreteMapper = $this->getFactory()->createProductTableDataMapper();
@@ -153,12 +148,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productConcreteQuery;
     }
 
-    /**
-     * @param \Orm\Zed\Product\Persistence\SpyProductQuery $productConcreteQuery
-     * @param int $idLocale
-     *
-     * @return \Orm\Zed\Product\Persistence\SpyProductQuery
-     */
     protected function addLocalizedAttributesToProductTableQuery(SpyProductQuery $productConcreteQuery, int $idLocale): SpyProductQuery
     {
         $productConcreteQuery->joinSpyProductLocalizedAttributes()
@@ -171,9 +160,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productConcreteQuery;
     }
 
-    /**
-     * @return string
-     */
     protected function createProductStoresSubquery(): string
     {
         /** @var literal-string $where */
@@ -194,11 +180,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productStoresSubquery->createSelectSql($params);
     }
 
-    /**
-     * @param int $idLocale
-     *
-     * @return string
-     */
     protected function createProductImagesSubquery(int $idLocale): string
     {
         /** @var literal-string $where */
@@ -223,11 +204,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productImagesSubquery->createSelectSql($params);
     }
 
-    /**
-     * @param string $merchantReference
-     *
-     * @return string
-     */
     protected function createProductOffersCountSubquery(string $merchantReference): string
     {
         $productOffersSubquery = $this->createProductOffersBaseSubquery($merchantReference);
@@ -238,11 +214,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productOffersSubquery->createSelectSql($params);
     }
 
-    /**
-     * @param string $merchantReference
-     *
-     * @return \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery
-     */
     protected function createProductOffersBaseSubquery(string $merchantReference): SpyProductOfferQuery
     {
         $productOffersSubquery = $this->getFactory()->getProductOfferPropelQuery();
@@ -259,12 +230,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productOffersSubquery->where($where);
     }
 
-    /**
-     * @param \Orm\Zed\Product\Persistence\SpyProductQuery $productConcreteQuery
-     * @param \Generated\Shared\Transfer\ProductTableCriteriaTransfer $productTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\Product\Persistence\SpyProductQuery
-     */
     protected function addProductSorting(
         SpyProductQuery $productConcreteQuery,
         ProductTableCriteriaTransfer $productTableCriteriaTransfer
@@ -287,11 +252,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productConcreteQuery;
     }
 
-    /**
-     * @param \Propel\Runtime\Util\PropelModelPager $propelPager
-     *
-     * @return \Generated\Shared\Transfer\PaginationTransfer
-     */
     protected function hydratePaginationTransfer(
         PropelModelPager $propelPager
     ): PaginationTransfer {
@@ -307,12 +267,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
             ->setPreviousPage($propelPager->getPreviousPage());
     }
 
-    /**
-     * @param \Orm\Zed\Product\Persistence\SpyProductQuery $productConcreteQuery
-     * @param \Generated\Shared\Transfer\ProductTableCriteriaTransfer $productTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\Product\Persistence\SpyProductQuery
-     */
     protected function addProductFilters(
         SpyProductQuery $productConcreteQuery,
         ProductTableCriteriaTransfer $productTableCriteriaTransfer
@@ -323,12 +277,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productConcreteQuery;
     }
 
-    /**
-     * @param \Orm\Zed\Product\Persistence\SpyProductQuery $productConcreteQuery
-     * @param \Generated\Shared\Transfer\ProductTableCriteriaTransfer $productTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\Product\Persistence\SpyProductQuery
-     */
     protected function applyProductSearch(
         SpyProductQuery $productConcreteQuery,
         ProductTableCriteriaTransfer $productTableCriteriaTransfer
@@ -347,12 +295,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productConcreteQuery->addAnd($productNameSearchCriterion);
     }
 
-    /**
-     * @param \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery $productOfferQuery
-     * @param \Generated\Shared\Transfer\ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery
-     */
     protected function applyProductOfferSearch(
         SpyProductOfferQuery $productOfferQuery,
         ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
@@ -376,12 +318,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productOfferQuery->add($productNameSearchCriterion);
     }
 
-    /**
-     * @param \Orm\Zed\Product\Persistence\SpyProductQuery $productConcreteQuery
-     * @param \Generated\Shared\Transfer\ProductTableCriteriaTransfer $productTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\Product\Persistence\SpyProductQuery
-     */
     protected function addIsActiveProductFilter(
         SpyProductQuery $productConcreteQuery,
         ProductTableCriteriaTransfer $productTableCriteriaTransfer
@@ -428,11 +364,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productConcreteQuery;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOfferCollectionTransfer
-     */
     public function getProductOfferTableData(
         ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
     ): ProductOfferCollectionTransfer {
@@ -527,9 +458,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productOfferQuery;
     }
 
-    /**
-     * @return string
-     */
     protected function createProductOfferStoresSubquery(): string
     {
         $storesSubquery = $this->getFactory()->getProductOfferStorePropelQuery()
@@ -545,12 +473,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $storesSubquery->createSelectSql($params);
     }
 
-    /**
-     * @param \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery $productOfferQuery
-     * @param int $idLocale
-     *
-     * @return \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery
-     */
     protected function joinProductLocalizedAttributesToProductOfferQuery(SpyProductOfferQuery $productOfferQuery, int $idLocale): SpyProductOfferQuery
     {
         $productLocalizedAttributesJoinName = 'SpyProductLocalizedAttributes';
@@ -567,12 +489,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productOfferQuery;
     }
 
-    /**
-     * @param \Propel\Runtime\ActiveQuery\Criteria $criteria
-     * @param string $searchTerm
-     *
-     * @return \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion
-     */
     protected function getProductNameSearchCriteria(Criteria $criteria, string $searchTerm): LikeCriterion
     {
         /** @var \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion $likeCriterion */
@@ -585,12 +501,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $likeCriterion->setIgnoreCase(true);
     }
 
-    /**
-     * @param \Propel\Runtime\ActiveQuery\Criteria $criteria
-     * @param string $searchTerm
-     *
-     * @return \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion
-     */
     protected function getProductSkuSearchCriteria(Criteria $criteria, string $searchTerm): LikeCriterion
     {
         /** @var \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion $likeCriterion */
@@ -603,12 +513,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $likeCriterion->setIgnoreCase(true);
     }
 
-    /**
-     * @param \Propel\Runtime\ActiveQuery\Criteria $criteria
-     * @param string $searchTerm
-     *
-     * @return \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion
-     */
     protected function getProductOfferReferenceSearchCriteria(Criteria $criteria, string $searchTerm): LikeCriterion
     {
         /** @var \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion $likeCriterion */
@@ -621,12 +525,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $likeCriterion->setIgnoreCase(true);
     }
 
-    /**
-     * @param \Propel\Runtime\ActiveQuery\Criteria $criteria
-     * @param string $searchTerm
-     *
-     * @return \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion
-     */
     protected function getProductOfferMerchantSkuSearchCriteria(Criteria $criteria, string $searchTerm): LikeCriterion
     {
         /** @var \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion $likeCriterion */
@@ -639,12 +537,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $likeCriterion->setIgnoreCase(true);
     }
 
-    /**
-     * @param \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery $productOfferQuery
-     * @param \Generated\Shared\Transfer\ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery
-     */
     protected function addProductOfferFilters(
         SpyProductOfferQuery $productOfferQuery,
         ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
@@ -660,12 +552,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productOfferQuery;
     }
 
-    /**
-     * @param \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery $productOfferQuery
-     * @param \Generated\Shared\Transfer\ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery
-     */
     protected function addIsActiveProductOfferFilter(
         SpyProductOfferQuery $productOfferQuery,
         ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
@@ -681,12 +567,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productOfferQuery;
     }
 
-    /**
-     * @param \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery $productOfferQuery
-     * @param \Generated\Shared\Transfer\ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery
-     */
     protected function addApprovalStatusProductOfferFilter(
         SpyProductOfferQuery $productOfferQuery,
         ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
@@ -700,12 +580,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productOfferQuery;
     }
 
-    /**
-     * @param \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery $productOfferQuery
-     * @param \Generated\Shared\Transfer\ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery
-     */
     protected function addStockProductOfferFilter(
         SpyProductOfferQuery $productOfferQuery,
         ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
@@ -732,12 +606,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productOfferQuery;
     }
 
-    /**
-     * @param \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery $productOfferQuery
-     * @param \Generated\Shared\Transfer\ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery
-     */
     protected function addStoreProductOfferFilter(
         SpyProductOfferQuery $productOfferQuery,
         ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
@@ -754,12 +622,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productOfferQuery;
     }
 
-    /**
-     * @param \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery $productOfferQuery
-     * @param \Generated\Shared\Transfer\ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery
-     */
     protected function addValidityProductOfferFilter(
         SpyProductOfferQuery $productOfferQuery,
         ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
@@ -785,12 +647,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productOfferQuery;
     }
 
-    /**
-     * @param \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery $productOfferQuery
-     * @param \Generated\Shared\Transfer\ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery
-     */
     protected function addCreatedAtProductOfferFilter(
         SpyProductOfferQuery $productOfferQuery,
         ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
@@ -815,12 +671,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productOfferQuery;
     }
 
-    /**
-     * @param \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery $productOfferQuery
-     * @param \Generated\Shared\Transfer\ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery
-     */
     protected function addUpdatedAtProductOfferFilter(
         SpyProductOfferQuery $productOfferQuery,
         ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
@@ -845,12 +695,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productOfferQuery;
     }
 
-    /**
-     * @param \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery $productOfferQuery
-     * @param \Generated\Shared\Transfer\ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery
-     */
     protected function addProductOfferSorting(
         SpyProductOfferQuery $productOfferQuery,
         ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
@@ -878,13 +722,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
         return $productOfferQuery;
     }
 
-    /**
-     * @param \Propel\Runtime\ActiveQuery\ModelCriteria $query
-     * @param string $orderColumn
-     * @param string $orderDirection
-     *
-     * @return \Propel\Runtime\ActiveQuery\ModelCriteria
-     */
     protected function addNaturalSorting(
         ModelCriteria $query,
         string $orderColumn,

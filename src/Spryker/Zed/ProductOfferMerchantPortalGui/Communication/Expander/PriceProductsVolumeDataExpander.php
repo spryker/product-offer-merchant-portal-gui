@@ -49,13 +49,6 @@ class PriceProductsVolumeDataExpander implements PriceProductsVolumeDataExpander
      */
     protected PriceProductOfferDataProviderInterface $priceProductOfferDataProvider;
 
-    /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Service\ProductOfferMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Mapper\PriceProductOfferMapper $priceProductOfferMapper
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductOfferVolumeFacadeInterface $priceProductOfferVolumeFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Filter\PriceProductFilterInterface $priceProductFilter
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\DataProvider\PriceProductOfferDataProviderInterface $priceProductOfferDataProvider
-     */
     public function __construct(
         ProductOfferMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService,
         PriceProductOfferMapper $priceProductOfferMapper,
@@ -305,13 +298,6 @@ class PriceProductsVolumeDataExpander implements PriceProductsVolumeDataExpander
         return $storedPriceProductTransfers;
     }
 
-    /**
-     * @param int $volumeQuantity
-     * @param string $requestKey
-     * @param string $requestValue
-     *
-     * @return int
-     */
     protected function getVolumeQuantity(int $volumeQuantity, string $requestKey, string $requestValue): int
     {
         return strpos($requestKey, static::REQUEST_DATA_KEY_VOLUME_QUANTITY) === false ? $volumeQuantity : (int)$requestValue;

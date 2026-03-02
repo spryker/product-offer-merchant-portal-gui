@@ -18,21 +18,12 @@ abstract class AbstractPriceProductComparisonMergeStrategy implements PriceProdu
      */
     protected ProductOfferMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService;
 
-    /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Service\ProductOfferMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService
-     */
     public function __construct(
         ProductOfferMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService
     ) {
         $this->priceProductVolumeService = $priceProductVolumeService;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransferA
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransferB
-     *
-     * @return bool
-     */
     public function isSame(
         PriceProductTransfer $priceProductTransferA,
         PriceProductTransfer $priceProductTransferB
@@ -48,12 +39,6 @@ abstract class AbstractPriceProductComparisonMergeStrategy implements PriceProdu
         return $this->hasSamePriceType($priceProductTransferA, $priceProductTransferB);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MoneyValueTransfer $moneyValueTransferA
-     * @param \Generated\Shared\Transfer\MoneyValueTransfer $moneyValueTransferB
-     *
-     * @return bool
-     */
     protected function getIsSameMoneyValue(
         MoneyValueTransfer $moneyValueTransferA,
         MoneyValueTransfer $moneyValueTransferB
@@ -64,12 +49,6 @@ abstract class AbstractPriceProductComparisonMergeStrategy implements PriceProdu
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransferA
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransferB
-     *
-     * @return bool
-     */
     protected function hasSamePriceType(
         PriceProductTransfer $priceProductTransferA,
         PriceProductTransfer $priceProductTransferB

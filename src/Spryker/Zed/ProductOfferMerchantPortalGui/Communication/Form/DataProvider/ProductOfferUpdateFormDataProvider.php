@@ -21,12 +21,6 @@ class ProductOfferUpdateFormDataProvider extends AbstractProductOfferFormDataPro
      */
     protected ProductOfferMerchantPortalGuiToProductOfferFacadeInterface $productOfferFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToProductFacadeInterface $productFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToProductOfferFacadeInterface $productOfferFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMerchantStockFacadeInterface $merchantStockFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     */
     public function __construct(
         ProductOfferMerchantPortalGuiToProductFacadeInterface $productFacade,
         ProductOfferMerchantPortalGuiToProductOfferFacadeInterface $productOfferFacade,
@@ -37,11 +31,6 @@ class ProductOfferUpdateFormDataProvider extends AbstractProductOfferFormDataPro
         $this->productOfferFacade = $productOfferFacade;
     }
 
-    /**
-     * @param int $idProductOffer
-     *
-     * @return \Generated\Shared\Transfer\ProductOfferTransfer|null
-     */
     public function getData(int $idProductOffer): ?ProductOfferTransfer
     {
         $currentMerchantReference = $this->merchantUserFacade

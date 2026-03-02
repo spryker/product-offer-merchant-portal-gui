@@ -13,25 +13,10 @@ use Generated\Shared\Transfer\RawProductAttributesTransfer;
 
 interface ProductOfferMerchantPortalGuiToProductFacadeInterface
 {
-    /**
-     * @param int $idProduct
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer|null
-     */
     public function findProductConcreteById(int $idProduct): ?ProductConcreteTransfer;
 
-    /**
-     * @param int $idProductAbstract
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractTransfer|null
-     */
     public function findProductAbstractById(int $idProductAbstract): ?ProductAbstractTransfer;
 
-    /**
-     * @param string $sku
-     *
-     * @return int|null
-     */
     public function findProductConcreteIdBySku(string $sku): ?int;
 
     /**

@@ -166,12 +166,6 @@ class AbstractProductOfferController extends AbstractController
         return array_merge($responseData, $zedUiFormResponseBuilder->createResponse()->toArray());
     }
 
-    /**
-     * @param \Symfony\Component\Form\FormView $formView
-     * @param \Generated\Shared\Transfer\ProductOfferFormViewCollectionTransfer $productOfferFormViewCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOfferFormViewCollectionTransfer
-     */
     protected function executeProductOfferFormViewExpanderPlugins(
         FormView $formView,
         ProductOfferFormViewCollectionTransfer $productOfferFormViewCollectionTransfer

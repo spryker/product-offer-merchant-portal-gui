@@ -16,17 +16,11 @@ class ValidProductOfferPriceIdsOwnByMerchantConstraint extends SymfonyConstraint
      */
     protected const MESSAGE = "The merchant doesn't own the product offer.";
 
-    /**
-     * @return string
-     */
     public function getMessage(): string
     {
         return static::MESSAGE;
     }
 
-    /**
-     * @return string
-     */
     public function getTargets(): string
     {
         return static::CLASS_CONSTRAINT;

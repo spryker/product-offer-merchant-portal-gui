@@ -41,12 +41,6 @@ class PriceProductOfferTableViewSorter implements PriceProductOfferTableViewSort
         $this->defaultPriceProductComparisonStrategy = $defaultPriceProductComparisonStrategy;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferTableViewCollectionTransfer $priceProductOfferTableViewCollectionTransfer
-     * @param \Generated\Shared\Transfer\PriceProductOfferTableCriteriaTransfer $criteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductOfferTableViewCollectionTransfer
-     */
     public function sortPriceProductOfferTableViews(
         PriceProductOfferTableViewCollectionTransfer $priceProductOfferTableViewCollectionTransfer,
         PriceProductOfferTableCriteriaTransfer $criteriaTransfer
@@ -74,11 +68,6 @@ class PriceProductOfferTableViewSorter implements PriceProductOfferTableViewSort
         return $priceProductOfferTableViewCollectionTransfer;
     }
 
-    /**
-     * @param string $sortField
-     *
-     * @return callable
-     */
     protected function getValueExtractorFunctionByStrategy(string $sortField): callable
     {
         foreach ($this->priceProductComparisonStrategies as $priceProductComparisonStrategy) {
@@ -90,12 +79,6 @@ class PriceProductOfferTableViewSorter implements PriceProductOfferTableViewSort
         return $this->defaultPriceProductComparisonStrategy->getValueExtractorFunction($sortField);
     }
 
-    /**
-     * @param callable $valueExtractorFunction
-     * @param bool $sortAscending
-     *
-     * @return callable
-     */
     protected function createSortFunction(
         callable $valueExtractorFunction,
         bool $sortAscending

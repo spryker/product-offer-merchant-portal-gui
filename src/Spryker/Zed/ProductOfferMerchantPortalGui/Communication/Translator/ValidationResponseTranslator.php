@@ -17,19 +17,11 @@ class ValidationResponseTranslator implements ValidationResponseTranslatorInterf
      */
     protected ProductOfferMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade
-     */
     public function __construct(ProductOfferMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade)
     {
         $this->translatorFacade = $translatorFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ValidationResponseTransfer $validationResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\ValidationResponseTransfer
-     */
     public function translateValidationResponse(ValidationResponseTransfer $validationResponseTransfer): ValidationResponseTransfer
     {
         foreach ($validationResponseTransfer->getValidationErrors() as $validationErrorTransfer) {

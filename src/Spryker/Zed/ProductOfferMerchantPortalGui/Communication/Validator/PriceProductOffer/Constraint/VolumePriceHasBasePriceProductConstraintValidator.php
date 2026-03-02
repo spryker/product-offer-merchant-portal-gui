@@ -56,13 +56,6 @@ class VolumePriceHasBasePriceProductConstraintValidator extends AbstractConstrai
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferTransfer $priceProductOfferTransfer
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Validator\PriceProductOffer\Constraint\VolumePriceHasBasePriceProductConstraint $volumePriceHasBasePriceProductConstraint
-     * @param int $priceProductOfferIndex
-     *
-     * @return void
-     */
     protected function validatePriceProductOffer(
         PriceProductOfferTransfer $priceProductOfferTransfer,
         VolumePriceHasBasePriceProductConstraint $volumePriceHasBasePriceProductConstraint,
@@ -82,14 +75,6 @@ class VolumePriceHasBasePriceProductConstraintValidator extends AbstractConstrai
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Validator\PriceProductOffer\Constraint\VolumePriceHasBasePriceProductConstraint $volumePriceHasBasePriceProductConstraint
-     * @param int $priceProductOfferIndex
-     * @param int $priceProductIndex
-     *
-     * @return void
-     */
     protected function validatePriceProduct(
         PriceProductTransfer $priceProductTransfer,
         VolumePriceHasBasePriceProductConstraint $volumePriceHasBasePriceProductConstraint,
@@ -129,33 +114,16 @@ class VolumePriceHasBasePriceProductConstraintValidator extends AbstractConstrai
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return bool
-     */
     protected function isPersistedPrice(PriceProductTransfer $priceProductTransfer): bool
     {
         return $priceProductTransfer->getIdPriceProduct() !== null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return bool
-     */
     protected function isBasePrice(PriceProductTransfer $priceProductTransfer): bool
     {
         return $priceProductTransfer->getVolumeQuantity() === 1;
     }
 
-    /**
-     * @param int $priceProductOfferIndex
-     * @param int $priceProductIndex
-     * @param int $volumePriceIndex
-     *
-     * @return string
-     */
     protected function createViolationPath(
         int $priceProductOfferIndex,
         int $priceProductIndex,

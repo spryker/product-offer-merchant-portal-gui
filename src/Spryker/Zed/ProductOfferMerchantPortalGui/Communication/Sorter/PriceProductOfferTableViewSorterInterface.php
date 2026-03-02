@@ -12,12 +12,6 @@ use Generated\Shared\Transfer\PriceProductOfferTableViewCollectionTransfer;
 
 interface PriceProductOfferTableViewSorterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferTableViewCollectionTransfer $priceProductOfferTableViewCollectionTransfer
-     * @param \Generated\Shared\Transfer\PriceProductOfferTableCriteriaTransfer $criteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductOfferTableViewCollectionTransfer
-     */
     public function sortPriceProductOfferTableViews(
         PriceProductOfferTableViewCollectionTransfer $priceProductOfferTableViewCollectionTransfer,
         PriceProductOfferTableCriteriaTransfer $criteriaTransfer

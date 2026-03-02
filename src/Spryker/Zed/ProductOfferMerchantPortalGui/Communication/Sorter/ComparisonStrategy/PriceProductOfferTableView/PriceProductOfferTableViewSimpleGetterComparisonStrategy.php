@@ -12,21 +12,11 @@ use Laminas\Filter\Word\UnderscoreToCamelCase;
 
 class PriceProductOfferTableViewSimpleGetterComparisonStrategy implements PriceProductOfferTableViewComparisonStrategyInterface
 {
-    /**
-     * @param string $fieldName
-     *
-     * @return bool
-     */
     public function isApplicable(string $fieldName): bool
     {
         return true;
     }
 
-    /**
-     * @param string $fieldName
-     *
-     * @return callable
-     */
     public function getValueExtractorFunction(string $fieldName): callable
     {
         $methodName = $this->getMethodName($fieldName);
@@ -40,11 +30,6 @@ class PriceProductOfferTableViewSimpleGetterComparisonStrategy implements PriceP
         };
     }
 
-    /**
-     * @param string $fieldName
-     *
-     * @return string
-     */
     protected function getMethodName(string $fieldName): string
     {
         $underscoreToCamelCaseFilter = new UnderscoreToCamelCase();

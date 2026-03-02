@@ -44,22 +44,11 @@ class PriceProductMatchingExistingVolumePriceMergeStrategy extends AbstractPrice
         return null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return bool
-     */
     protected function isUnpersistedVolumePrice(PriceProductTransfer $priceProductTransfer): bool
     {
         return $priceProductTransfer->getIdPriceProduct() === null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $newPriceProductTransfer
-     *
-     * @return void
-     */
     protected function mergeIntoUnpersistedVolumePrice(
         PriceProductTransfer $priceProductTransfer,
         PriceProductTransfer $newPriceProductTransfer

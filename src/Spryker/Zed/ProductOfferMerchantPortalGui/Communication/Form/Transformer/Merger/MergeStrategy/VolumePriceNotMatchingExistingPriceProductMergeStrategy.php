@@ -47,11 +47,6 @@ class VolumePriceNotMatchingExistingPriceProductMergeStrategy extends AbstractPr
         return $priceProductTransfers;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $newPriceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     protected function createNewBasePriceProductTransferForVolumePrice(
         PriceProductTransfer $newPriceProductTransfer
     ): PriceProductTransfer {

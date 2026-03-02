@@ -11,8 +11,5 @@ use Generated\Shared\Transfer\GuiTableConfigurationTransfer;
 
 interface GuiTableConfigurationProviderInterface
 {
-    /**
-     * @return \Generated\Shared\Transfer\GuiTableConfigurationTransfer
-     */
     public function getConfiguration(): GuiTableConfigurationTransfer;
 }

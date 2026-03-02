@@ -71,19 +71,11 @@ class PriceProductOfferPropertyPathAnalyzer implements PriceProductOfferProperty
      */
     protected ColumnIdCreatorInterface $columnIdCreator;
 
-    /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\GuiTable\Column\ColumnIdCreatorInterface $columnIdCreator
-     */
     public function __construct(ColumnIdCreatorInterface $columnIdCreator)
     {
         $this->columnIdCreator = $columnIdCreator;
     }
 
-    /**
-     * @param string $propertyPath
-     *
-     * @return bool
-     */
     public function isRowViolation(string $propertyPath): bool
     {
         $propertyPathValues = $this->extractPropertyPathValues($propertyPath);
@@ -92,11 +84,6 @@ class PriceProductOfferPropertyPathAnalyzer implements PriceProductOfferProperty
         return is_numeric($lastPropertyPathElement);
     }
 
-    /**
-     * @param string $propertyPath
-     *
-     * @return bool
-     */
     public function isVolumePriceViolation(string $propertyPath): bool
     {
         $propertyPathValues = $this->extractPropertyPathValues($propertyPath);
@@ -104,11 +91,6 @@ class PriceProductOfferPropertyPathAnalyzer implements PriceProductOfferProperty
         return ($propertyPathValues[static::PROPERTY_PATH_VALUES_INDEX_VOLUME_PRICE_TYPE] ?? null) === static::VOLUME_PRICE_TYPE;
     }
 
-    /**
-     * @param string $propertyPath
-     *
-     * @return bool
-     */
     public function isBasePriceViolation(string $propertyPath): bool
     {
         $propertyPathValues = $this->extractPropertyPathValues($propertyPath);
@@ -119,21 +101,11 @@ class PriceProductOfferPropertyPathAnalyzer implements PriceProductOfferProperty
         );
     }
 
-    /**
-     * @param string $propertyPath
-     *
-     * @return bool
-     */
     public function isPriceRowError(string $propertyPath): bool
     {
         return $this->isBasePriceViolation($propertyPath) || $this->isVolumePriceRowError($propertyPath);
     }
 
-    /**
-     * @param string $propertyPath
-     *
-     * @return bool
-     */
     public function isVolumePriceRowError(string $propertyPath): bool
     {
         $propertyPathValues = $this->extractPropertyPathValues($propertyPath);
@@ -144,11 +116,6 @@ class PriceProductOfferPropertyPathAnalyzer implements PriceProductOfferProperty
         );
     }
 
-    /**
-     * @param string $propertyPath
-     *
-     * @return string
-     */
     public function transformPropertyPathToColumnId(string $propertyPath): string
     {
         $propertyPathValues = $this->extractPropertyPathValues($propertyPath);
@@ -169,11 +136,6 @@ class PriceProductOfferPropertyPathAnalyzer implements PriceProductOfferProperty
         return (string)end($propertyPathValues);
     }
 
-    /**
-     * @param string $propertyPath
-     *
-     * @return int
-     */
     public function getPriceProductOfferIndex(string $propertyPath): int
     {
         $propertyPathValues = $this->extractPropertyPathValues($propertyPath);
@@ -181,11 +143,6 @@ class PriceProductOfferPropertyPathAnalyzer implements PriceProductOfferProperty
         return (int)$propertyPathValues[static::PROPERTY_PATH_VALUES_INDEX_PRICE_PRODUCT_OFFER_INDEX];
     }
 
-    /**
-     * @param string $propertyPath
-     *
-     * @return int
-     */
     public function getPriceProductIndex(string $propertyPath): int
     {
         $propertyPathValues = $this->extractPropertyPathValues($propertyPath);
@@ -193,11 +150,6 @@ class PriceProductOfferPropertyPathAnalyzer implements PriceProductOfferProperty
         return (int)$propertyPathValues[static::PROPERTY_PATH_VALUES_INDEX_PRICE_PRODUCT_INDEX];
     }
 
-    /**
-     * @param string $propertyPath
-     *
-     * @return int
-     */
     public function getVolumePriceIndex(string $propertyPath): int
     {
         $propertyPathValues = $this->extractPropertyPathValues($propertyPath);
@@ -239,11 +191,6 @@ class PriceProductOfferPropertyPathAnalyzer implements PriceProductOfferProperty
         return null;
     }
 
-    /**
-     * @param string $moneyTypeWithPriceTypeName
-     *
-     * @return string
-     */
     protected function extractPriceTypeNameFromMoneyValue(string $moneyTypeWithPriceTypeName): string
     {
         [$_, $priceTypeName] = explode(':', $moneyTypeWithPriceTypeName);
@@ -284,11 +231,6 @@ class PriceProductOfferPropertyPathAnalyzer implements PriceProductOfferProperty
         return $propertyPathValues;
     }
 
-    /**
-     * @param string $fieldName
-     *
-     * @return bool
-     */
     protected function isPriceColumn(string $fieldName): bool
     {
         return (

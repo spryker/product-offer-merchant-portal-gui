@@ -15,26 +15,11 @@ use Generated\Shared\Transfer\ProductTableCriteriaTransfer;
 
 interface ProductOfferMerchantPortalGuiRepositoryInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductTableCriteriaTransfer $productTableCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteCollectionTransfer
-     */
     public function getProductTableData(ProductTableCriteriaTransfer $productTableCriteriaTransfer): ProductConcreteCollectionTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOfferCollectionTransfer
-     */
     public function getProductOfferTableData(
         ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
     ): ProductOfferCollectionTransfer;
 
-    /**
-     * @param int $idMerchant
-     *
-     * @return \Generated\Shared\Transfer\MerchantProductOfferCountsTransfer
-     */
     public function getOffersDashboardCardCounts(int $idMerchant): MerchantProductOfferCountsTransfer;
 }

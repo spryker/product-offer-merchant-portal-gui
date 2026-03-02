@@ -108,13 +108,6 @@ abstract class AbstractPriceProductOfferGuiTableConfigurationProvider
      */
     protected ColumnIdCreatorInterface $columnIdCreator;
 
-    /**
-     * @param \Spryker\Shared\GuiTable\GuiTableFactoryInterface $guiTableFactory
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToStoreFacadeInterface $storeFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToCurrencyFacadeInterface $currencyFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\GuiTable\Column\ColumnIdCreatorInterface $columnIdCreator
-     */
     public function __construct(
         GuiTableFactoryInterface $guiTableFactory,
         ProductOfferMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade,
@@ -297,11 +290,6 @@ abstract class AbstractPriceProductOfferGuiTableConfigurationProvider
         return $currencyOptions;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceTypeTransfer $priceTypeTransfer
-     *
-     * @return string
-     */
     protected function getPriceTypeName(PriceTypeTransfer $priceTypeTransfer): string
     {
         return (string)$priceTypeTransfer->getName();

@@ -26,31 +26,16 @@ class ProductOfferMerchantPortalGuiToProductFacadeBridge implements ProductOffer
         $this->productFacade = $productFacade;
     }
 
-    /**
-     * @param int $idProduct
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer|null
-     */
     public function findProductConcreteById(int $idProduct): ?ProductConcreteTransfer
     {
         return $this->productFacade->findProductConcreteById($idProduct);
     }
 
-    /**
-     * @param int $idProductAbstract
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractTransfer|null
-     */
     public function findProductAbstractById(int $idProductAbstract): ?ProductAbstractTransfer
     {
         return $this->productFacade->findProductAbstractById($idProductAbstract);
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return int|null
-     */
     public function findProductConcreteIdBySku(string $sku): ?int
     {
         return $this->productFacade->findProductConcreteIdBySku($sku);

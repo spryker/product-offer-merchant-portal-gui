@@ -38,19 +38,11 @@ class MerchantOrderItemTableExpander implements MerchantOrderItemTableExpanderIn
      */
     protected ProductOfferMerchantPortalGuiToProductOfferFacadeInterface $productOfferFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToProductOfferFacadeInterface $productOfferFacade
-     */
     public function __construct(ProductOfferMerchantPortalGuiToProductOfferFacadeInterface $productOfferFacade)
     {
         $this->productOfferFacade = $productOfferFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GuiTableConfigurationTransfer $guiTableConfigurationTransfer
-     *
-     * @return \Generated\Shared\Transfer\GuiTableConfigurationTransfer
-     */
     public function expandConfiguration(GuiTableConfigurationTransfer $guiTableConfigurationTransfer): GuiTableConfigurationTransfer
     {
         $guiTableConfigurationTransfer
@@ -70,11 +62,6 @@ class MerchantOrderItemTableExpander implements MerchantOrderItemTableExpanderIn
         return $guiTableConfigurationTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GuiTableDataResponseTransfer $guiTableDataResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\GuiTableDataResponseTransfer
-     */
     public function expandDataResponse(GuiTableDataResponseTransfer $guiTableDataResponseTransfer): GuiTableDataResponseTransfer
     {
         $productOfferReferences = [];

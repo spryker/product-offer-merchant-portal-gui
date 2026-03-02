@@ -13,12 +13,6 @@ use Generated\Shared\Transfer\ProductConcreteTransfer;
 
 class ProductNameBuilder implements ProductNameBuilderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return string|null
-     */
     public function buildProductConcreteName(
         ProductConcreteTransfer $productConcreteTransfer,
         LocaleTransfer $localeTransfer
@@ -48,12 +42,6 @@ class ProductNameBuilder implements ProductNameBuilderInterface
         return implode(', ', $extendedProductConcreteNameParts);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return \Generated\Shared\Transfer\LocalizedAttributesTransfer
-     */
     protected function getConcreteLocalizedAttributesTransfer(
         ProductConcreteTransfer $productConcreteTransfer,
         LocaleTransfer $localeTransfer

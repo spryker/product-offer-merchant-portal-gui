@@ -56,14 +56,6 @@ class ProductOfferPriceGuiTableDataProvider extends AbstractGuiTableDataProvider
      */
     protected PriceProductOfferTableViewSorterInterface $priceProductOfferTableViewSorter;
 
-    /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMoneyFacadeInterface $moneyFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Mapper\PriceProductOfferTableDataMapperInterface $priceProductOfferTableDataMapper
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Reader\PriceProductReaderInterface $priceProductReader
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Sorter\PriceProductOfferTableViewSorterInterface $priceProductOfferTableViewSorter
-     * @param int|null $idProductOffer
-     */
     public function __construct(
         ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade,
         ProductOfferMerchantPortalGuiToMoneyFacadeInterface $moneyFacade,
@@ -80,11 +72,6 @@ class ProductOfferPriceGuiTableDataProvider extends AbstractGuiTableDataProvider
         $this->priceProductOfferTableViewSorter = $priceProductOfferTableViewSorter;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GuiTableDataRequestTransfer $guiTableDataRequestTransfer
-     *
-     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
-     */
     protected function createCriteria(GuiTableDataRequestTransfer $guiTableDataRequestTransfer): AbstractTransfer
     {
         $idMerchant = $this->merchantUserFacade->getCurrentMerchantUser()->getIdMerchantOrFail();
@@ -130,11 +117,6 @@ class ProductOfferPriceGuiTableDataProvider extends AbstractGuiTableDataProvider
             ->setTotal($paginationTransfer->getNbResults());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferTableCriteriaTransfer $criteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductOfferTableViewCollectionTransfer
-     */
     protected function createPriceProductOfferTableViewCollectionTransfer(
         PriceProductOfferTableCriteriaTransfer $criteriaTransfer
     ): PriceProductOfferTableViewCollectionTransfer {
@@ -167,12 +149,6 @@ class ProductOfferPriceGuiTableDataProvider extends AbstractGuiTableDataProvider
         return $priceProductOfferTableViewCollectionTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferTableViewCollectionTransfer $priceProductOfferTableViewCollectionTransfer
-     * @param \Generated\Shared\Transfer\PriceProductOfferTableCriteriaTransfer $criteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\PaginationTransfer
-     */
     protected function updatePaginationTransfer(
         PriceProductOfferTableViewCollectionTransfer $priceProductOfferTableViewCollectionTransfer,
         PriceProductOfferTableCriteriaTransfer $criteriaTransfer
@@ -185,11 +161,6 @@ class ProductOfferPriceGuiTableDataProvider extends AbstractGuiTableDataProvider
             ->setLastPage((int)($count / $criteriaTransfer->getPageSizeOrFail()));
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferTableViewCollectionTransfer $priceProductOfferTableViewCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductOfferTableViewCollectionTransfer
-     */
     protected function applyPagination(
         PriceProductOfferTableViewCollectionTransfer $priceProductOfferTableViewCollectionTransfer
     ): PriceProductOfferTableViewCollectionTransfer {
@@ -214,11 +185,6 @@ class ProductOfferPriceGuiTableDataProvider extends AbstractGuiTableDataProvider
         return $priceProductOfferTableViewCollectionTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferTableCriteriaTransfer $criteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductOfferTableCriteriaTransfer
-     */
     protected function replaceSortingFields(PriceProductOfferTableCriteriaTransfer $criteriaTransfer): PriceProductOfferTableCriteriaTransfer
     {
         /** @var string $orderByField */

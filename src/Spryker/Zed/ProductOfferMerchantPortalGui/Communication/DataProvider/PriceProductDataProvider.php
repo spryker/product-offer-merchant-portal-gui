@@ -39,12 +39,6 @@ class PriceProductDataProvider implements PriceProductDataProviderInterface
      */
     protected PriceProductsVolumeDataExpanderInterface $priceProductsVolumeDataExpander;
 
-    /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductOfferFacadeInterface $priceProductOfferFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Mapper\PriceProductOfferMapper $priceProductOfferMapper
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Expander\PriceProductsVolumeDataExpanderInterface $priceProductsVolumeDataExpander
-     */
     public function __construct(
         ProductOfferMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade,
         ProductOfferMerchantPortalGuiToPriceProductOfferFacadeInterface $priceProductOfferFacade,
@@ -157,12 +151,6 @@ class PriceProductDataProvider implements PriceProductDataProviderInterface
         return $this->setPriceTypeToPriceProduct($priceTypeName, $priceProductTransfer);
     }
 
-    /**
-     * @param string $priceTypeName
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     protected function setPriceTypeToPriceProduct(
         string $priceTypeName,
         PriceProductTransfer $priceProductTransfer
