@@ -20,4 +20,5 @@ suites:
                 - Asserts
                 - \SprykerTest\Shared\Testify\Helper\Environment
                 - \SprykerTest\Shared\Testify\Helper\LocatorHelper
+                - \SprykerTest\Shared\Testify\Helper\DependencyHelper
                 - \SprykerTest\Zed\Testify\Helper\Communication\CommunicationHelper
