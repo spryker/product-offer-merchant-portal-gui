@@ -13,8 +13,8 @@ import { ProductOfferComponent } from './product-offer.component';
     `,
 })
 class TestHostComponent {
-    @Input() tableConfig: any;
-    @Input() tableId: any;
+    @Input() tableConfig: unknown;
+    @Input() tableId: unknown;
 }
 
 describe('ProductOfferComponent', () => {

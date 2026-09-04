@@ -18,9 +18,9 @@ import { EditOfferComponent } from './edit-offer.component';
     `,
 })
 class TestHostComponent {
-    @Input() productDetailsTitle: any;
-    @Input() images: any;
-    @Input() product: any;
+    @Input() productDetailsTitle: unknown;
+    @Input() images: unknown;
+    @Input() product: unknown;
 }
 
 describe('EditOfferComponent', () => {

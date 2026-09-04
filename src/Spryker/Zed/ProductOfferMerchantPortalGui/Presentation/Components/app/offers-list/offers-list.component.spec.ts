@@ -13,8 +13,8 @@ import { OffersListComponent } from './offers-list.component';
     `,
 })
 class TestHostComponent {
-    @Input() tableConfig: any;
-    @Input() tableId: any;
+    @Input() tableConfig: unknown;
+    @Input() tableId: unknown;
 }
 
 describe('OffersListComponent', () => {

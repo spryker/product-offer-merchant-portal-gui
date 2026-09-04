@@ -1,5 +1,5 @@
 import { Component, Input, NO_ERRORS_SCHEMA } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { ImageSliderComponent } from './image-slider.component';
 
@@ -23,7 +23,7 @@ const mockedImages = [
     template: ` <mp-image-slider [images]="images"></mp-image-slider> `,
 })
 class TestHostComponent {
-    @Input() images: any;
+    @Input() images: unknown;
 }
 
 describe('ImageSliderComponent', () => {
