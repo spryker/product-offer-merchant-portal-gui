@@ -66,9 +66,6 @@ class PriceProductOfferPropertyPathAnalyzer implements PriceProductOfferProperty
      */
     protected const VOLUME_PRICE_ROW_ERROR_PROPERTY_PATH_VALUES_NUMBER = 9;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\GuiTable\Column\ColumnIdCreatorInterface
-     */
     protected ColumnIdCreatorInterface $columnIdCreator;
 
     public function __construct(ColumnIdCreatorInterface $columnIdCreator)
@@ -159,8 +156,6 @@ class PriceProductOfferPropertyPathAnalyzer implements PriceProductOfferProperty
 
     /**
      * @param array<string> $propertyPathValues
-     *
-     * @return string|null
      */
     protected function extractColumnId(array $propertyPathValues): ?string
     {
@@ -200,8 +195,6 @@ class PriceProductOfferPropertyPathAnalyzer implements PriceProductOfferProperty
 
     /**
      * @param array<string> $propertyPathValues
-     *
-     * @return string|null
      */
     protected function mapVolumePricePathToFieldName(
         array $propertyPathValues
@@ -219,8 +212,6 @@ class PriceProductOfferPropertyPathAnalyzer implements PriceProductOfferProperty
     }
 
     /**
-     * @param string $propertyPath
-     *
      * @return array<string>
      */
     protected function extractPropertyPathValues(string $propertyPath): array

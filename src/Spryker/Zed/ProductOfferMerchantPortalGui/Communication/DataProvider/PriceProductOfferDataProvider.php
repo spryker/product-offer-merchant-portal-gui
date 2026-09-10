@@ -16,19 +16,10 @@ use Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerc
 
 class PriceProductOfferDataProvider implements PriceProductOfferDataProviderInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToProductOfferFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToProductOfferFacadeInterface $productOfferFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Filter\PriceProductFilterInterface
-     */
     protected PriceProductFilterInterface $priceProductFilter;
 
     public function __construct(
@@ -42,8 +33,6 @@ class PriceProductOfferDataProvider implements PriceProductOfferDataProviderInte
     }
 
     /**
-     * @param int $idProductOffer
-     *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>
      */
     public function getPriceProductTransfers(int $idProductOffer): ArrayObject

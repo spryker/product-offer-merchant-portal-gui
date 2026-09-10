@@ -77,14 +77,8 @@ class ProductGuiTableConfigurationProvider implements GuiTableConfigurationProvi
      */
     protected const DATA_URL = '/product-offer-merchant-portal-gui/product-list/table-data';
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToTranslatorFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade;
 
-    /**
-     * @var \Spryker\Shared\GuiTable\GuiTableFactoryInterface
-     */
     protected GuiTableFactoryInterface $guiTableFactory;
 
     /**
@@ -93,8 +87,6 @@ class ProductGuiTableConfigurationProvider implements GuiTableConfigurationProvi
     protected array $productTableExpanderPlugins;
 
     /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade
-     * @param \Spryker\Shared\GuiTable\GuiTableFactoryInterface $guiTableFactory
      * @param array<\Spryker\Zed\ProductOfferMerchantPortalGuiExtension\Dependency\Plugin\ProductTableExpanderPluginInterface> $productTableExpanderPlugins
      */
     public function __construct(

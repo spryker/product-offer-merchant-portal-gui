@@ -24,8 +24,6 @@ interface ProductOfferMerchantPortalGuiToPriceProductOfferFacadeInterface
     public function count(PriceProductOfferCriteriaTransfer $priceProductOfferCriteriaTransfer): int;
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferCriteriaTransfer $priceProductOfferCriteriaTransfer
-     *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>
      */
     public function getProductOfferPrices(

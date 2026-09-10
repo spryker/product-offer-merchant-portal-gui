@@ -112,10 +112,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
      * @module ProductOffer
      * @module ProductImage
      * @module ProductValidity
-     *
-     * @param \Generated\Shared\Transfer\ProductTableCriteriaTransfer $productTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\Product\Persistence\SpyProductQuery
      */
     protected function buildProductTableBaseQuery(ProductTableCriteriaTransfer $productTableCriteriaTransfer): SpyProductQuery
     {
@@ -334,11 +330,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
 
     /**
      * @module ProductOffer
-     *
-     * @param \Orm\Zed\Product\Persistence\SpyProductQuery $productConcreteQuery
-     * @param \Generated\Shared\Transfer\ProductTableCriteriaTransfer $productTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\Product\Persistence\SpyProductQuery
      */
     protected function addHasOffersProductFilter(
         SpyProductQuery $productConcreteQuery,
@@ -396,10 +387,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
      * @module ProductOfferStock
      * @module Product
      * @module ProductImage
-     *
-     * @param \Generated\Shared\Transfer\ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
-     *
-     * @return \Orm\Zed\ProductOffer\Persistence\SpyProductOfferQuery
      */
     protected function buildProductOfferTableBaseQuery(
         ProductOfferTableCriteriaTransfer $productOfferTableCriteriaTransfer
@@ -744,10 +731,6 @@ class ProductOfferMerchantPortalGuiRepository extends AbstractRepository impleme
      * @module ProductOffer
      * @module ProductOfferStock
      * @module ProductOfferValidity
-     *
-     * @param int $idMerchant
-     *
-     * @return \Generated\Shared\Transfer\MerchantProductOfferCountsTransfer
      */
     public function getOffersDashboardCardCounts(int $idMerchant): MerchantProductOfferCountsTransfer
     {

@@ -37,29 +37,14 @@ class ProductOfferGuiTableDataProvider extends AbstractGuiTableDataProvider
      */
     protected const COLUMN_DATA_APPROVAL_STATUS_WAITING_FOR_APPROVAL = 'Pending';
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Persistence\ProductOfferMerchantPortalGuiRepositoryInterface
-     */
     protected ProductOfferMerchantPortalGuiRepositoryInterface $productOfferMerchantPortalGuiRepository;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToTranslatorFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Builder\ProductNameBuilderInterface
-     */
     protected ProductNameBuilderInterface $productNameBuilder;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToLocaleFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToLocaleFacadeInterface $localeFacade;
 
     public function __construct(
@@ -85,8 +70,6 @@ class ProductOfferGuiTableDataProvider extends AbstractGuiTableDataProvider
 
     /**
      * @param \Generated\Shared\Transfer\ProductOfferTableCriteriaTransfer $criteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\GuiTableDataResponseTransfer
      */
     protected function fetchData(AbstractTransfer $criteriaTransfer): GuiTableDataResponseTransfer
     {
@@ -133,8 +116,6 @@ class ProductOfferGuiTableDataProvider extends AbstractGuiTableDataProvider
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductOfferTransfer $productOfferTransfer
-     *
      * @return array<string>
      */
     protected function getStoresColumnData(ProductOfferTransfer $productOfferTransfer): array

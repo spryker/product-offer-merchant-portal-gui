@@ -22,19 +22,10 @@ class PriceDeleter implements PriceDeleterInterface
      */
     protected const MESSAGE_ERROR_PRICE_PRODUCT_HAS_VOLUME_PRICES = 'Price product with quantity 1 cannot be deleted when there are volume prices for the same store and currency.';
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductOfferFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToPriceProductOfferFacadeInterface $priceProductOfferFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Service\ProductOfferMerchantPortalGuiToPriceProductVolumeServiceInterface
-     */
     protected ProductOfferMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Validator\PriceProductOffer\PriceProductOfferValidatorInterface
-     */
     protected PriceProductOfferValidatorInterface $priceProductOfferValidator;
 
     public function __construct(

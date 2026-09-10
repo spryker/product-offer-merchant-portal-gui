@@ -90,10 +90,7 @@ class PriceProductOfferUpdateGuiTableConfigurationProvider extends AbstractPrice
     protected $idProductOffer;
 
     /**
-     * @param int $idProductOffer
      * @param array<mixed> $initialData
-     *
-     * @return \Generated\Shared\Transfer\GuiTableConfigurationTransfer
      */
     public function getConfiguration(int $idProductOffer, array $initialData = []): GuiTableConfigurationTransfer
     {
@@ -154,11 +151,8 @@ class PriceProductOfferUpdateGuiTableConfigurationProvider extends AbstractPrice
     }
 
     /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
      * @param array<\Generated\Shared\Transfer\PriceTypeTransfer> $priceTypeTransfers
      * @param array<mixed> $initialData
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
      */
     protected function setEditableConfiguration(
         GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder,

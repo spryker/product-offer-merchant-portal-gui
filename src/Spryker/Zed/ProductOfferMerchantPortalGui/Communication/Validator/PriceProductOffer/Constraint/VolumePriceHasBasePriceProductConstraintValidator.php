@@ -33,8 +33,6 @@ class VolumePriceHasBasePriceProductConstraintValidator extends AbstractConstrai
      * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Validator\PriceProductOffer\Constraint\VolumePriceHasBasePriceProductConstraint $constraint
      *
      * @throws \Symfony\Component\Validator\Exception\UnexpectedTypeException
-     *
-     * @return void
      */
     public function validate($value, Constraint $constraint): void
     {

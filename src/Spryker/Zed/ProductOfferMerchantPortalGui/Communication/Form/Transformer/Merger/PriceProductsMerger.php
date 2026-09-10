@@ -27,7 +27,6 @@ class PriceProductsMerger implements PriceProductsMergerInterface
 
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $newPriceProductTransfer
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>
      */
@@ -54,7 +53,6 @@ class PriceProductsMerger implements PriceProductsMergerInterface
 
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $newPriceProductTransfer
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>
      */

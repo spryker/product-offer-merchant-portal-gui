@@ -14,8 +14,8 @@ use Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderIn
 use Spryker\Shared\GuiTable\GuiTableFactoryInterface;
 use Spryker\Zed\ProductOfferMerchantPortalGui\Communication\GuiTable\Column\ColumnIdCreatorInterface;
 use Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToCurrencyFacadeInterface;
+use Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface;
 use Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductFacadeInterface;
-use Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToStoreFacadeInterface;
 
 abstract class AbstractPriceProductOfferGuiTableConfigurationProvider
 {
@@ -83,51 +83,33 @@ abstract class AbstractPriceProductOfferGuiTableConfigurationProvider
      */
     protected const TYPE_OPTION_VALUE = 'value';
 
-    /**
-     * @var \Spryker\Shared\GuiTable\GuiTableFactoryInterface
-     */
     protected GuiTableFactoryInterface $guiTableFactory;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToStoreFacadeInterface
-     */
-    protected ProductOfferMerchantPortalGuiToStoreFacadeInterface $storeFacade;
+    protected ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToCurrencyFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToCurrencyFacadeInterface $currencyFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\GuiTable\Column\ColumnIdCreatorInterface
-     */
     protected ColumnIdCreatorInterface $columnIdCreator;
 
     public function __construct(
         GuiTableFactoryInterface $guiTableFactory,
         ProductOfferMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade,
-        ProductOfferMerchantPortalGuiToStoreFacadeInterface $storeFacade,
+        ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade,
         ProductOfferMerchantPortalGuiToCurrencyFacadeInterface $currencyFacade,
         ColumnIdCreatorInterface $columnIdCreator
     ) {
         $this->guiTableFactory = $guiTableFactory;
         $this->priceProductFacade = $priceProductFacade;
-        $this->storeFacade = $storeFacade;
+        $this->merchantUserFacade = $merchantUserFacade;
         $this->currencyFacade = $currencyFacade;
         $this->columnIdCreator = $columnIdCreator;
     }
 
     /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
      * @param array<\Generated\Shared\Transfer\PriceTypeTransfer> $priceTypeTransfers
      * @param array<mixed> $initialData
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
      */
     protected function setEditableConfiguration(
         GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder,
@@ -151,10 +133,7 @@ abstract class AbstractPriceProductOfferGuiTableConfigurationProvider
     }
 
     /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
      * @param array<\Generated\Shared\Transfer\PriceTypeTransfer> $priceTypeTransfers
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
      */
     protected function addEditableColumns(
         GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder,
@@ -206,10 +185,7 @@ abstract class AbstractPriceProductOfferGuiTableConfigurationProvider
     }
 
     /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
      * @param array<\Generated\Shared\Transfer\PriceTypeTransfer> $priceTypeTransfers
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
      */
     protected function addColumns(
         GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder,
@@ -259,11 +235,13 @@ abstract class AbstractPriceProductOfferGuiTableConfigurationProvider
     }
 
     /**
+     * Keyed by store id, limited to stores the current merchant is assigned to.
+     *
      * @return array<string>
      */
     protected function getStoreOptions(): array
     {
-        $storeTransfers = $this->storeFacade->getAllStores();
+        $storeTransfers = $this->getCurrentMerchantStores();
 
         $storeOptions = [];
         foreach ($storeTransfers as $storeTransfer) {
@@ -274,20 +252,62 @@ abstract class AbstractPriceProductOfferGuiTableConfigurationProvider
     }
 
     /**
+     * Limited to stores the current merchant is assigned to, not all stores in the system.
+     *
+     * @return array<\Generated\Shared\Transfer\StoreTransfer>
+     */
+    protected function getCurrentMerchantStores(): array
+    {
+        $merchantTransfer = $this->merchantUserFacade
+            ->getCurrentMerchantUser()
+            ->getMerchant();
+
+        if (!$merchantTransfer || !$merchantTransfer->getStoreRelation()) {
+            return [];
+        }
+
+        return $merchantTransfer->getStoreRelationOrFail()
+            ->getStores()
+            ->getArrayCopy();
+    }
+
+    /**
+     * Keyed by currency id, limited to currencies of stores the current merchant is assigned to.
+     *
      * @return array<string>
      */
     protected function getCurrencyOptions(): array
     {
+        $merchantStoreIds = $this->getCurrentMerchantStoreIds();
         $storeWithCurrencyTransfers = $this->currencyFacade->getAllStoresWithCurrencies();
 
         $currencyOptions = [];
         foreach ($storeWithCurrencyTransfers as $storeWithCurrencyTransfer) {
+            if (!in_array($storeWithCurrencyTransfer->getStoreOrFail()->getIdStore(), $merchantStoreIds, true)) {
+                continue;
+            }
+
             foreach ($storeWithCurrencyTransfer->getCurrencies() as $currencyTransfer) {
                 $currencyOptions[(string)$currencyTransfer->getIdCurrency()] = (string)$currencyTransfer->getCode();
             }
         }
 
         return $currencyOptions;
+    }
+
+    /**
+     * Store ids the current merchant is assigned to.
+     *
+     * @return array<int>
+     */
+    protected function getCurrentMerchantStoreIds(): array
+    {
+        $storeIds = [];
+        foreach ($this->getCurrentMerchantStores() as $storeTransfer) {
+            $storeIds[] = $storeTransfer->getIdStoreOrFail();
+        }
+
+        return $storeIds;
     }
 
     protected function getPriceTypeName(PriceTypeTransfer $priceTypeTransfer): string

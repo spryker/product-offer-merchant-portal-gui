@@ -44,10 +44,6 @@ class AbstractProductOfferController extends AbstractController
     protected const RESPONSE_NOTIFICATION_MESSAGE_ERROR = 'To save an Offer please resolve all errors.';
 
     /**
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     *
      * @return array<string>
      */
     protected function getProductAttributes(
@@ -74,7 +70,6 @@ class AbstractProductOfferController extends AbstractController
 
     /**
      * @param array<\Generated\Shared\Transfer\LocalizedAttributesTransfer> $localizedAttributes
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
      * @return array<string>
      */
@@ -96,9 +91,6 @@ class AbstractProductOfferController extends AbstractController
     }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param string $formName
-     *
      * @return array<mixed>
      */
     protected function getDefaultInitialData(Request $request, string $formName): array
@@ -142,7 +134,6 @@ class AbstractProductOfferController extends AbstractController
 
     /**
      * @param array<string, mixed> $responseData
-     * @param \Generated\Shared\Transfer\ProductOfferResponseTransfer|null $productOfferResponseTransfer
      *
      * @return array<string, mixed>
      */

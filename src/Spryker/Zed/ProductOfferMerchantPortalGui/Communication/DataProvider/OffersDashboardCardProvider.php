@@ -18,29 +18,14 @@ use Twig\Environment;
 
 class OffersDashboardCardProvider implements OffersDashboardCardProviderInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Persistence\ProductOfferMerchantPortalGuiRepositoryInterface
-     */
     protected ProductOfferMerchantPortalGuiRepositoryInterface $productOfferMerchantPortalGuiRepository;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToRouterFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToRouterFacadeInterface $routerFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\ProductOfferMerchantPortalGuiConfig
-     */
     protected ProductOfferMerchantPortalGuiConfig $productOfferMerchantPortalGuiConfig;
 
-    /**
-     * @var \Twig\Environment
-     */
     protected Environment $twigEnvironment;
 
     public function __construct(

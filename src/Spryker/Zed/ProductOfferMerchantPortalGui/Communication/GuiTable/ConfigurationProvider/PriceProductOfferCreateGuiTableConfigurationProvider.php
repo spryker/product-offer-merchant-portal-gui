@@ -20,8 +20,6 @@ class PriceProductOfferCreateGuiTableConfigurationProvider extends AbstractPrice
 
     /**
      * @param array<mixed> $initialData
-     *
-     * @return \Generated\Shared\Transfer\GuiTableConfigurationTransfer
      */
     public function getConfiguration(array $initialData = []): GuiTableConfigurationTransfer
     {

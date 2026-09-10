@@ -13,9 +13,6 @@ use Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Service\ProductOfferMer
 
 abstract class AbstractPriceProductComparisonMergeStrategy implements PriceProductMergeStrategyInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Service\ProductOfferMerchantPortalGuiToPriceProductVolumeServiceInterface
-     */
     protected ProductOfferMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService;
 
     public function __construct(

@@ -16,9 +16,6 @@ use Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerc
 
 class ProductOfferUpdateFormDataProvider extends AbstractProductOfferFormDataProvider implements ProductOfferUpdateFormDataProviderInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToProductOfferFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToProductOfferFacadeInterface $productOfferFacade;
 
     public function __construct(

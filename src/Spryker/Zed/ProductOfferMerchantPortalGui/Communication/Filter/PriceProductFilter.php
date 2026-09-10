@@ -15,7 +15,6 @@ class PriceProductFilter implements PriceProductFilterInterface
 {
     /**
      * @param array<\Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     * @param \Generated\Shared\Transfer\PriceProductOfferCriteriaTransfer $priceProductOfferCriteriaTransfer
      *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */

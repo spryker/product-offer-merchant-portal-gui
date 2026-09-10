@@ -91,9 +91,6 @@ class ProductTableDataMapper
         self::COL_KEY_VALID_TO => SpyProductValidityTableMap::COL_VALID_TO,
     ];
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Service\ProductOfferMerchantPortalGuiToUtilEncodingServiceInterface
-     */
     protected ProductOfferMerchantPortalGuiToUtilEncodingServiceInterface $utilEncodingService;
 
     public function __construct(ProductOfferMerchantPortalGuiToUtilEncodingServiceInterface $utilEncodingService)
@@ -103,9 +100,6 @@ class ProductTableDataMapper
 
     /**
      * @param array<mixed> $productTableDataArray
-     * @param \Generated\Shared\Transfer\ProductConcreteCollectionTransfer $productConcreteCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteCollectionTransfer
      */
     public function mapProductTableDataArrayToProductConcreteCollectionTransfer(
         array $productTableDataArray,
@@ -182,9 +176,6 @@ class ProductTableDataMapper
 
     /**
      * @param array<mixed> $productTableRowDataArray
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer
      */
     protected function mapImageToProductConcrete(
         array $productTableRowDataArray,

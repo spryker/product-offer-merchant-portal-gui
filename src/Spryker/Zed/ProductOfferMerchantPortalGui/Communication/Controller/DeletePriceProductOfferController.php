@@ -83,12 +83,9 @@ class DeletePriceProductOfferController extends AbstractPriceProductOfferControl
     }
 
     /**
-     * @param int $idProductOffer
      * @param array<int> $priceProductOfferIds
      *
      * @throws \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Exception\ProductOfferNotFoundException
-     *
-     * @return \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer
      */
     protected function createPriceProductOfferCollectionTransferByPriceProductOfferIds(
         int $idProductOffer,

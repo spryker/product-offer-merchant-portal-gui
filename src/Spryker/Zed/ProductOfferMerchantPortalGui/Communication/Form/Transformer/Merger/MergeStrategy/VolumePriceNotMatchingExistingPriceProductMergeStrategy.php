@@ -14,7 +14,6 @@ class VolumePriceNotMatchingExistingPriceProductMergeStrategy extends AbstractPr
 {
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $newPriceProductTransfer
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>|null
      */

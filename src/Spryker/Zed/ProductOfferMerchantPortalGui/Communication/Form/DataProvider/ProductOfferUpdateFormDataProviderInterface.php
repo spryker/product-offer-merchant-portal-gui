@@ -15,8 +15,6 @@ interface ProductOfferUpdateFormDataProviderInterface
     public function getData(int $idProductOffer): ?ProductOfferTransfer;
 
     /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     *
      * @return array<string, mixed>
      */
     public function getOptions(ProductAbstractTransfer $productAbstractTransfer): array;

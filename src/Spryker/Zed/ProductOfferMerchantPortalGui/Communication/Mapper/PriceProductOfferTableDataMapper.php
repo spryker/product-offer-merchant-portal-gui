@@ -23,19 +23,10 @@ class PriceProductOfferTableDataMapper implements PriceProductOfferTableDataMapp
      */
     protected const PAGINATION_FIRST_PAGE = 1;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToStoreFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToStoreFacadeInterface $storeFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\GuiTable\Column\ColumnIdCreatorInterface
-     */
     protected ColumnIdCreatorInterface $columnIdCreator;
 
     public function __construct(
@@ -50,9 +41,6 @@ class PriceProductOfferTableDataMapper implements PriceProductOfferTableDataMapp
 
     /**
      * @param array<\Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     * @param \Generated\Shared\Transfer\PriceProductOfferTableViewCollectionTransfer $priceProductOfferTableViewCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductOfferTableViewCollectionTransfer
      */
     public function mapPriceProductTransfersToPriceProductOfferTableViewCollectionTransfer(
         array $priceProductTransfers,
@@ -124,12 +112,7 @@ class PriceProductOfferTableDataMapper implements PriceProductOfferTableDataMapp
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
      * @param array<string, int> $prices
-     * @param string $storeName
-     * @param string $currencyCode
-     *
-     * @return \Generated\Shared\Transfer\PriceProductOfferTableViewTransfer
      */
     protected function createPriceProductOfferTableViewTransfer(
         PriceProductTransfer $priceProductTransfer,
@@ -148,9 +131,6 @@ class PriceProductOfferTableDataMapper implements PriceProductOfferTableDataMapp
 
     /**
      * @param array<\Generated\Shared\Transfer\PriceProductOfferTableViewTransfer> $priceProductOfferTableViewTransfers
-     * @param \Generated\Shared\Transfer\PaginationTransfer $paginationTransfer
-     *
-     * @return \Generated\Shared\Transfer\PaginationTransfer
      */
     protected function mapPriceProductOfferTableViewTransfersToPaginationTransfer(
         array $priceProductOfferTableViewTransfers,
@@ -164,11 +144,7 @@ class PriceProductOfferTableDataMapper implements PriceProductOfferTableDataMapp
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferTableViewTransfer $priceProductOfferTableViewTransfer
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
      * @param array<\Generated\Shared\Transfer\PriceTypeTransfer> $priceTypeTransfers
-     *
-     * @return \Generated\Shared\Transfer\PriceProductOfferTableViewTransfer
      */
     protected function mergePriceProductTransferToPriceProductOfferTableViewTransfer(
         PriceProductOfferTableViewTransfer $priceProductOfferTableViewTransfer,
@@ -199,7 +175,6 @@ class PriceProductOfferTableDataMapper implements PriceProductOfferTableDataMapp
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
      * @param array<\Generated\Shared\Transfer\PriceTypeTransfer> $priceTypeTransfers
      *
      * @return array<string, int>

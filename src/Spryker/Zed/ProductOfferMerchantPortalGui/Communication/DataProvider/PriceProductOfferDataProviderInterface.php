@@ -12,8 +12,6 @@ use ArrayObject;
 interface PriceProductOfferDataProviderInterface
 {
     /**
-     * @param int $idProductOffer
-     *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>
      */
     public function getPriceProductTransfers(int $idProductOffer): ArrayObject;

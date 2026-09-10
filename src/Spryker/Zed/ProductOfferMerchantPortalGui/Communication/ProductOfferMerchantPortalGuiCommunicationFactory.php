@@ -127,7 +127,7 @@ class ProductOfferMerchantPortalGuiCommunicationFactory extends AbstractCommunic
         return new PriceProductOfferUpdateGuiTableConfigurationProvider(
             $this->getGuiTableFactory(),
             $this->getPriceProductFacade(),
-            $this->getStoreFacade(),
+            $this->getMerchantUserFacade(),
             $this->getCurrencyFacade(),
             $this->createColumnIdCreator(),
         );
@@ -138,7 +138,7 @@ class ProductOfferMerchantPortalGuiCommunicationFactory extends AbstractCommunic
         return new PriceProductOfferCreateGuiTableConfigurationProvider(
             $this->getGuiTableFactory(),
             $this->getPriceProductFacade(),
-            $this->getStoreFacade(),
+            $this->getMerchantUserFacade(),
             $this->getCurrencyFacade(),
             $this->createColumnIdCreator(),
         );
@@ -185,7 +185,6 @@ class ProductOfferMerchantPortalGuiCommunicationFactory extends AbstractCommunic
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductOfferTransfer|null $data
      * @param array<mixed> $options
      *
      * @return \Symfony\Component\Form\FormInterface<mixed>
@@ -239,8 +238,6 @@ class ProductOfferMerchantPortalGuiCommunicationFactory extends AbstractCommunic
     }
 
     /**
-     * @param int|null $idProductOffer
-     *
      * @return \Symfony\Component\Form\DataTransformerInterface<\ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>, string>
      */
     public function createPriceProductOfferTransformer(?int $idProductOffer = null): DataTransformerInterface

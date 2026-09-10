@@ -139,8 +139,6 @@ class ProductOfferForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface<mixed> $builder
      * @param array<mixed> $options
-     *
-     * @return void
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {

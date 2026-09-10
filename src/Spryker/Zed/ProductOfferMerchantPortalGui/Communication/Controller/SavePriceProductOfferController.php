@@ -43,11 +43,7 @@ class SavePriceProductOfferController extends AbstractPriceProductOfferControlle
     protected const RESPONSE_NOTIFICATION_MESSAGE_SUCCESS = 'Offer prices saved successfully.';
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function indexAction(Request $request): JsonResponse
     {
@@ -115,8 +111,6 @@ class SavePriceProductOfferController extends AbstractPriceProductOfferControlle
     }
 
     /**
-     * @param string $requestedTypePriceProductOfferIds
-     *
      * @return array<int>
      */
     protected function parseTypePriceProductOfferIds(string $requestedTypePriceProductOfferIds): array

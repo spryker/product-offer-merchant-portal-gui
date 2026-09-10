@@ -20,19 +20,10 @@ use Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerc
 
 abstract class AbstractProductOfferFormDataProvider
 {
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToProductFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToProductFacadeInterface $productFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMerchantStockFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToMerchantStockFacadeInterface $merchantStockFacade;
 
     public function __construct(
@@ -46,8 +37,6 @@ abstract class AbstractProductOfferFormDataProvider
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     *
      * @return array<string, array<int>>
      */
     public function getOptions(ProductAbstractTransfer $productAbstractTransfer): array
@@ -58,8 +47,6 @@ abstract class AbstractProductOfferFormDataProvider
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     *
      * @return array<string, int>
      */
     protected function getStoreChoices(ProductAbstractTransfer $productAbstractTransfer): array
@@ -108,11 +95,7 @@ abstract class AbstractProductOfferFormDataProvider
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductOfferTransfer $productOfferTransfer
-     *
      * @throws \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Exception\DefaultMerchantStockNotFoundException
-     *
-     * @return \Generated\Shared\Transfer\ProductOfferTransfer
      */
     protected function setDefaultMerchantStock(ProductOfferTransfer $productOfferTransfer): ProductOfferTransfer
     {

@@ -13,8 +13,6 @@ class ProductOfferMerchantPortalGuiConfig extends AbstractBundleConfig
 {
     /**
      * @api
-     *
-     * @return int
      */
     public function getDashboardExpiringOffersDaysThreshold(): int
     {
@@ -23,8 +21,6 @@ class ProductOfferMerchantPortalGuiConfig extends AbstractBundleConfig
 
     /**
      * @api
-     *
-     * @return int
      */
     public function getDashboardLowStockThreshold(): int
     {

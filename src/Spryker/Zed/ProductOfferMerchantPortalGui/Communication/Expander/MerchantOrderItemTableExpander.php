@@ -33,9 +33,6 @@ class MerchantOrderItemTableExpander implements MerchantOrderItemTableExpanderIn
      */
     protected const COLUMN_TYPE_TEXT = 'text';
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToProductOfferFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToProductOfferFacadeInterface $productOfferFacade;
 
     public function __construct(ProductOfferMerchantPortalGuiToProductOfferFacadeInterface $productOfferFacade)
@@ -115,8 +112,6 @@ class MerchantOrderItemTableExpander implements MerchantOrderItemTableExpanderIn
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductOfferCollectionTransfer $productOfferCollectionTransfer
-     *
      * @return array<string, string>
      */
     protected function getMerchantSkusIndexedByProductOfferReferences(

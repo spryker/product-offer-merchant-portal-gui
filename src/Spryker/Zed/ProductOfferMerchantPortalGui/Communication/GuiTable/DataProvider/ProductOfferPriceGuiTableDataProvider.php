@@ -26,34 +26,16 @@ use Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerc
 
 class ProductOfferPriceGuiTableDataProvider extends AbstractGuiTableDataProvider
 {
-    /**
-     * @var int|null
-     */
     protected ?int $idProductOffer;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMoneyFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToMoneyFacadeInterface $moneyFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Mapper\PriceProductOfferTableDataMapperInterface
-     */
     protected PriceProductOfferTableDataMapperInterface $priceProductOfferTableDataMapper;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Reader\PriceProductReaderInterface
-     */
     protected PriceProductReaderInterface $priceProductReader;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Sorter\PriceProductOfferTableViewSorterInterface
-     */
     protected PriceProductOfferTableViewSorterInterface $priceProductOfferTableViewSorter;
 
     public function __construct(
@@ -83,8 +65,6 @@ class ProductOfferPriceGuiTableDataProvider extends AbstractGuiTableDataProvider
 
     /**
      * @param \Generated\Shared\Transfer\PriceProductOfferTableCriteriaTransfer $criteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\GuiTableDataResponseTransfer
      */
     protected function fetchData(AbstractTransfer $criteriaTransfer): GuiTableDataResponseTransfer
     {
@@ -215,8 +195,6 @@ class ProductOfferPriceGuiTableDataProvider extends AbstractGuiTableDataProvider
 
     /**
      * @param mixed $value
-     *
-     * @return float|null
      */
     protected function convertIntegerToDecimal($value): ?float
     {

@@ -24,29 +24,14 @@ class PriceProductsVolumeDataExpander implements PriceProductsVolumeDataExpander
      */
     protected const REQUEST_DATA_KEY_VOLUME_QUANTITY = 'volume_quantity';
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Service\ProductOfferMerchantPortalGuiToPriceProductVolumeServiceInterface
-     */
     protected ProductOfferMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Mapper\PriceProductOfferMapper
-     */
     protected PriceProductOfferMapper $priceProductOfferMapper;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductOfferVolumeFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToPriceProductOfferVolumeFacadeInterface $priceProductOfferVolumeFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Filter\PriceProductFilterInterface
-     */
     protected PriceProductFilterInterface $priceProductFilter;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\DataProvider\PriceProductOfferDataProviderInterface
-     */
     protected PriceProductOfferDataProviderInterface $priceProductOfferDataProvider;
 
     public function __construct(
@@ -66,8 +51,6 @@ class PriceProductsVolumeDataExpander implements PriceProductsVolumeDataExpander
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
      * @param array<mixed> $requestData
-     * @param int $volumeQuantity
-     * @param int $idProductOffer
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>
      */
@@ -92,10 +75,8 @@ class PriceProductsVolumeDataExpander implements PriceProductsVolumeDataExpander
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $storedPriceProductTransfers
      * @param array<mixed> $requestData
-     * @param int $volumeQuantity
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>
      */
@@ -143,11 +124,7 @@ class PriceProductsVolumeDataExpander implements PriceProductsVolumeDataExpander
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $storedPriceProductTransfers
-     * @param int $volumeQuantity
-     * @param string $requestKey
-     * @param string $requestValue
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>
      */
@@ -181,12 +158,7 @@ class PriceProductsVolumeDataExpander implements PriceProductsVolumeDataExpander
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $storedPriceProductTransfer
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $storedPriceProductTransfers
-     * @param int $volumeQuantity
-     * @param string $requestKey
-     * @param string $requestValue
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>
      */
@@ -236,12 +208,7 @@ class PriceProductsVolumeDataExpander implements PriceProductsVolumeDataExpander
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $storedPriceProductTransfer
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $storedPriceProductTransfers
-     * @param int $volumeQuantity
-     * @param string $requestKey
-     * @param string $requestValue
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>
      */

@@ -20,8 +20,6 @@ interface ProductOfferMerchantPortalGuiToProductFacadeInterface
     public function findProductConcreteIdBySku(string $sku): ?int;
 
     /**
-     * @param \Generated\Shared\Transfer\RawProductAttributesTransfer $rawProductAttributesTransfer
-     *
      * @return array<string>
      */
     public function combineRawProductAttributes(RawProductAttributesTransfer $rawProductAttributesTransfer): array;

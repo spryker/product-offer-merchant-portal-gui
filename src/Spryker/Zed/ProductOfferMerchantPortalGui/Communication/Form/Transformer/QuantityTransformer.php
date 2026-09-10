@@ -17,8 +17,6 @@ class QuantityTransformer implements DataTransformerInterface
 {
     /**
      * @param \Spryker\DecimalObject\Decimal|mixed $value
-     *
-     * @return float|null
      */
     public function transform($value): ?float
     {
@@ -31,8 +29,6 @@ class QuantityTransformer implements DataTransformerInterface
 
     /**
      * @param mixed|float|null $value
-     *
-     * @return \Spryker\DecimalObject\Decimal|null
      */
     public function reverseTransform($value): ?Decimal
     {

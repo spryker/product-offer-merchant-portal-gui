@@ -126,19 +126,10 @@ class ProductOfferGuiTableConfigurationProvider implements GuiTableConfiguration
      */
     protected const DATA_URL = '/product-offer-merchant-portal-gui/product-offers/table-data';
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToStoreFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToStoreFacadeInterface $storeFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToTranslatorFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade;
 
-    /**
-     * @var \Spryker\Shared\GuiTable\GuiTableFactoryInterface
-     */
     protected GuiTableFactoryInterface $guiTableFactory;
 
     public function __construct(

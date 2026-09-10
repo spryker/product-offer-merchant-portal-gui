@@ -12,8 +12,6 @@ use Generated\Shared\Transfer\PriceProductOfferCriteriaTransfer;
 interface PriceProductReaderInterface
 {
     /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferCriteriaTransfer $priceProductOfferCriteriaTransfer
-     *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */
     public function getPriceProductTransfers(

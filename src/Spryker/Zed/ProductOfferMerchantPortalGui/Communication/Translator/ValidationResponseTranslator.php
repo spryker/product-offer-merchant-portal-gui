@@ -12,9 +12,6 @@ use Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerc
 
 class ValidationResponseTranslator implements ValidationResponseTranslatorInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToTranslatorFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade;
 
     public function __construct(ProductOfferMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade)

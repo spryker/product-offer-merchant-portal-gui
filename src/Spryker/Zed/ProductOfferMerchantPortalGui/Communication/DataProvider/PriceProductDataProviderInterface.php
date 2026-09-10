@@ -14,8 +14,6 @@ interface PriceProductDataProviderInterface
     /**
      * @param array<int> $typePriceProductOfferIds
      * @param array<mixed> $requestData
-     * @param int $volumeQuantity
-     * @param int $idProductOffer
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>
      */

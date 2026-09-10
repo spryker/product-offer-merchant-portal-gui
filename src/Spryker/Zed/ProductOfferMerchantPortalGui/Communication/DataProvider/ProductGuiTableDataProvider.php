@@ -23,29 +23,14 @@ use Spryker\Zed\ProductOfferMerchantPortalGui\Persistence\ProductOfferMerchantPo
 
 class ProductGuiTableDataProvider extends AbstractGuiTableDataProvider
 {
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Persistence\ProductOfferMerchantPortalGuiRepositoryInterface
-     */
     protected ProductOfferMerchantPortalGuiRepositoryInterface $productOfferMerchantPortalGuiRepository;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToTranslatorFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Builder\ProductNameBuilderInterface
-     */
     protected ProductNameBuilderInterface $productNameBuilder;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToLocaleFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToLocaleFacadeInterface $localeFacade;
 
     /**
@@ -54,11 +39,6 @@ class ProductGuiTableDataProvider extends AbstractGuiTableDataProvider
     protected array $productTableExpanderPlugins;
 
     /**
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Persistence\ProductOfferMerchantPortalGuiRepositoryInterface $productOfferMerchantPortalGuiRepository
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Builder\ProductNameBuilderInterface $productNameBuilder
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToLocaleFacadeInterface $localeFacade
      * @param array<\Spryker\Zed\ProductOfferMerchantPortalGuiExtension\Dependency\Plugin\ProductTableExpanderPluginInterface> $productTableExpanderPlugins
      */
     public function __construct(
@@ -86,8 +66,6 @@ class ProductGuiTableDataProvider extends AbstractGuiTableDataProvider
 
     /**
      * @param \Generated\Shared\Transfer\ProductTableCriteriaTransfer $criteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\GuiTableDataResponseTransfer
      */
     protected function fetchData(AbstractTransfer $criteriaTransfer): GuiTableDataResponseTransfer
     {
@@ -126,8 +104,6 @@ class ProductGuiTableDataProvider extends AbstractGuiTableDataProvider
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
      * @return array<string>
      */
     protected function getStoresColumnData(ProductConcreteTransfer $productConcreteTransfer): array

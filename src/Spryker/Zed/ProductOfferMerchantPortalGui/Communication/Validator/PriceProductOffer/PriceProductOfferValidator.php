@@ -18,19 +18,10 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class PriceProductOfferValidator implements PriceProductOfferValidatorInterface
 {
-    /**
-     * @var \Symfony\Component\Validator\Validator\ValidatorInterface
-     */
     protected ValidatorInterface $validator;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Validator\PriceProductOffer\PriceProductOfferConstraintProviderInterface
-     */
     protected PriceProductOfferConstraintProviderInterface $priceProductOfferConstraintProvider;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductOfferFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToPriceProductOfferFacadeInterface $priceProductOfferFacade;
 
     public function __construct(
@@ -65,9 +56,6 @@ class PriceProductOfferValidator implements PriceProductOfferValidatorInterface
 
     /**
      * @param \Symfony\Component\Validator\ConstraintViolationListInterface<\Symfony\Component\Validator\ConstraintViolationInterface> $constraintViolationList
-     * @param \Generated\Shared\Transfer\ValidationResponseTransfer $validationResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\ValidationResponseTransfer
      */
     protected function mapConstraintViolationListToValidationResponseTransfer(
         ConstraintViolationListInterface $constraintViolationList,

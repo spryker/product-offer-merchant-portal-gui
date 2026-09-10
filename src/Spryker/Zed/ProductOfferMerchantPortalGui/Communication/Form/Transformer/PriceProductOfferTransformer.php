@@ -36,44 +36,20 @@ class PriceProductOfferTransformer implements DataTransformerInterface
      */
     protected const PRICE_TYPE_DEFAULT = 'DEFAULT';
 
-    /**
-     * @var int|null
-     */
     protected ?int $idProductOffer;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Service\ProductOfferMerchantPortalGuiToUtilEncodingServiceInterface
-     */
     protected ProductOfferMerchantPortalGuiToUtilEncodingServiceInterface $utilEncodingService;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToCurrencyFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToCurrencyFacadeInterface $currencyFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMoneyFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToMoneyFacadeInterface $moneyFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Form\Transformer\Merger\PriceProductsMergerInterface
-     */
     protected PriceProductsMergerInterface $priceProductsMerger;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\GuiTable\Column\ColumnIdCreatorInterface
-     */
     protected ColumnIdCreatorInterface $columnIdCreator;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\DataProvider\PriceProductOfferDataProviderInterface
-     */
     protected PriceProductOfferDataProviderInterface $priceProductOfferDataProvider;
 
     public function __construct(
@@ -171,7 +147,6 @@ class PriceProductOfferTransformer implements DataTransformerInterface
 
     /**
      * @param array<mixed> $newPriceProductOffer
-     * @param \Generated\Shared\Transfer\PriceProductDimensionTransfer $priceProductDimensionTransfer
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
      * @param array<\Generated\Shared\Transfer\PriceTypeTransfer> $priceTypes
      *
@@ -209,11 +184,6 @@ class PriceProductOfferTransformer implements DataTransformerInterface
 
     /**
      * @param array<mixed> $newPriceProductOfferData
-     * @param \Generated\Shared\Transfer\PriceProductDimensionTransfer $priceProductDimensionTransfer
-     * @param \Generated\Shared\Transfer\CurrencyTransfer|null $currencyTransfer
-     * @param \Generated\Shared\Transfer\PriceTypeTransfer $priceTypeTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer|null
      */
     protected function createPriceProductTransfer(
         array $newPriceProductOfferData,
@@ -262,7 +232,6 @@ class PriceProductOfferTransformer implements DataTransformerInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
      * @param array<mixed> $prices
      * @param array<\Generated\Shared\Transfer\PriceTypeTransfer> $priceTypes
      *

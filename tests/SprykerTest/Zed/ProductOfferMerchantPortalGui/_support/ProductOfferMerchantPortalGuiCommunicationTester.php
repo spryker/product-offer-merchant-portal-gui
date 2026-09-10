@@ -40,8 +40,6 @@ class ProductOfferMerchantPortalGuiCommunicationTester extends Actor
 
     /**
      * @param array<string, object> $mocks
-     *
-     * @return \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\ProductOfferMerchantPortalGuiCommunicationFactory
      */
     public function createProductOfferMerchantPortalGuiCommunicationFactoryMock(array $mocks = []): ProductOfferMerchantPortalGuiCommunicationFactory
     {

@@ -34,9 +34,6 @@ class PriceProductsVolumeDataExpanderTest extends Unit
         'original[moneyValue][grossAmount]' => 90,
     ];
 
-    /**
-     * @var \SprykerTest\Zed\ProductOfferMerchantPortalGui\ProductOfferMerchantPortalGuiCommunicationTester
-     */
     protected ProductOfferMerchantPortalGuiCommunicationTester $tester;
 
     public function testExpandPriceProductsWithVolumeDataExpandsExistingVolumeData(): void

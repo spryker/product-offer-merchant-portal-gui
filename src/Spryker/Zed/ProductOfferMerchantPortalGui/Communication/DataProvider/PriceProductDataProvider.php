@@ -19,24 +19,12 @@ use Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerc
 
 class PriceProductDataProvider implements PriceProductDataProviderInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductOfferFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToPriceProductOfferFacadeInterface $priceProductOfferFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Mapper\PriceProductOfferMapper
-     */
     protected PriceProductOfferMapper $priceProductOfferMapper;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Expander\PriceProductsVolumeDataExpanderInterface
-     */
     protected PriceProductsVolumeDataExpanderInterface $priceProductsVolumeDataExpander;
 
     public function __construct(
@@ -54,8 +42,6 @@ class PriceProductDataProvider implements PriceProductDataProviderInterface
     /**
      * @param array<int> $typePriceProductOfferIds
      * @param array<mixed> $requestData
-     * @param int $volumeQuantity
-     * @param int $idProductOffer
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>
      */
@@ -85,7 +71,6 @@ class PriceProductDataProvider implements PriceProductDataProviderInterface
     /**
      * @param array<int> $typePriceProductOfferIds
      * @param array<mixed> $requestData
-     * @param int $idProductOffer
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>
      */
@@ -115,10 +100,6 @@ class PriceProductDataProvider implements PriceProductDataProviderInterface
 
     /**
      * @param array<int> $typePriceProductOfferIds
-     * @param string $priceTypeName
-     * @param int $idProductOffer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
      */
     protected function createNewPriceForProductOffer(array $typePriceProductOfferIds, string $priceTypeName, int $idProductOffer): PriceProductTransfer
     {
@@ -167,8 +148,6 @@ class PriceProductDataProvider implements PriceProductDataProviderInterface
 
     /**
      * @param array<int> $typePriceProductOfferIds
-     * @param string $key
-     * @param string $priceTypeName
      *
      * @return array<int>
      */

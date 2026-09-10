@@ -132,9 +132,6 @@ class ProductOfferTableDataMapper
         self::COL_KEY_UPDATED_AT => SpyProductOfferTableMap::COL_UPDATED_AT,
     ];
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Service\ProductOfferMerchantPortalGuiToUtilEncodingServiceInterface
-     */
     protected ProductOfferMerchantPortalGuiToUtilEncodingServiceInterface $utilEncodingService;
 
     public function __construct(ProductOfferMerchantPortalGuiToUtilEncodingServiceInterface $utilEncodingService)
@@ -144,9 +141,6 @@ class ProductOfferTableDataMapper
 
     /**
      * @param array<mixed> $productOfferTableDataArray
-     * @param \Generated\Shared\Transfer\ProductOfferCollectionTransfer $productOfferCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOfferCollectionTransfer
      */
     public function mapProductOfferTableDataArrayToProductOfferCollectionTransfer(
         array $productOfferTableDataArray,
@@ -225,9 +219,6 @@ class ProductOfferTableDataMapper
 
     /**
      * @param array<mixed> $productOfferTableRowDataArray
-     * @param \Generated\Shared\Transfer\ProductOfferTransfer $productOfferTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOfferTransfer
      */
     protected function mapImageToProductOffer(
         array $productOfferTableRowDataArray,
@@ -243,9 +234,6 @@ class ProductOfferTableDataMapper
 
     /**
      * @param array<mixed> $productOfferTableRowDataArray
-     * @param \Generated\Shared\Transfer\ProductOfferTransfer $productOfferTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOfferTransfer
      */
     protected function mapStockToProductOffer(
         array $productOfferTableRowDataArray,
@@ -261,9 +249,6 @@ class ProductOfferTableDataMapper
 
     /**
      * @param array<mixed> $productOfferTableRowDataArray
-     * @param \Generated\Shared\Transfer\ProductOfferTransfer $productOfferTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOfferTransfer
      */
     protected function mapValidityToProductOffer(
         array $productOfferTableRowDataArray,

@@ -26,8 +26,6 @@ class ValidProductOfferPriceIdsOwnByMerchantConstraintValidator extends Abstract
      * @param \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Form\Constraint\ValidProductOfferPriceIdsOwnByMerchantConstraint $constraint
      *
      * @throws \Symfony\Component\Validator\Exception\UnexpectedTypeException
-     *
-     * @return void
      */
     public function validate($value, Constraint $constraint): void
     {

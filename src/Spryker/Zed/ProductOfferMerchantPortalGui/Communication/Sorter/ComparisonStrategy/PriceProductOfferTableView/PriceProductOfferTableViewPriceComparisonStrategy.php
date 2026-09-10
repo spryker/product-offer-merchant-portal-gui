@@ -26,9 +26,6 @@ class PriceProductOfferTableViewPriceComparisonStrategy implements PriceProductO
      */
     protected const SUFFIX_PRICE_TYPE_GROSS = '_gross';
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\GuiTable\Column\ColumnIdCreatorInterface
-     */
     protected ColumnIdCreatorInterface $columnIdCreator;
 
     public function __construct(ColumnIdCreatorInterface $columnIdCreator)

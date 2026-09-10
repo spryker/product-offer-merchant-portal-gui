@@ -34,34 +34,16 @@ class PriceProductOfferMapper
      */
     protected const REQUEST_DATA_KEY_VOLUME_QUANTITY = 'volume_quantity';
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToMoneyFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToMoneyFacadeInterface $moneyFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductOfferVolumeFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToPriceProductOfferVolumeFacadeInterface $priceProductOfferVolumeFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Service\ProductOfferMerchantPortalGuiToPriceProductVolumeServiceInterface
-     */
     protected ProductOfferMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Validator\PriceProductOffer\PropertyPath\PriceProductOfferPropertyPathAnalyzerInterface
-     */
     protected PriceProductOfferPropertyPathAnalyzerInterface $propertyPathAnalyzer;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\GuiTable\Column\ColumnIdCreatorInterface
-     */
     protected ColumnIdCreatorInterface $columnIdCreator;
 
     public function __construct(
@@ -81,8 +63,6 @@ class PriceProductOfferMapper
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ValidationResponseTransfer $validationResponseTransfer
-     * @param \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer
      * @param array<mixed> $initialData
      *
      * @return array<mixed>
@@ -132,9 +112,6 @@ class PriceProductOfferMapper
 
     /**
      * @param array<mixed> $requestData
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
      */
     protected function mapRequestDataToPriceProductTransfer(
         array $requestData,
@@ -194,8 +171,6 @@ class PriceProductOfferMapper
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ValidationErrorTransfer $validationErrorTransfer
-     * @param \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer
      * @param array<mixed> $initialData
      *
      * @return array<mixed>
@@ -281,12 +256,7 @@ class PriceProductOfferMapper
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer
-     * @param string $propertyPath
-     *
      * @throws \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Exception\PriceProductOfferNotFoundException
-     *
-     * @return \Generated\Shared\Transfer\PriceProductOfferTransfer
      */
     protected function extractMatchingPriceProductOfferFromCollection(
         PriceProductOfferCollectionTransfer $priceProductOfferCollectionTransfer,
@@ -303,12 +273,7 @@ class PriceProductOfferMapper
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferTransfer $priceProductOfferTransfer
-     * @param string $propertyPath
-     *
      * @throws \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Exception\PriceProductNotFoundException
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
      */
     protected function extractMatchingPriceProductFromPriceProductOffer(
         PriceProductOfferTransfer $priceProductOfferTransfer,
@@ -325,12 +290,7 @@ class PriceProductOfferMapper
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param string $propertyPath
-     *
      * @throws \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Exception\VolumePriceNotFoundException
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
      */
     protected function extractMatchingVolumePrice(
         PriceProductTransfer $priceProductTransfer,
@@ -349,9 +309,6 @@ class PriceProductOfferMapper
 
     /**
      * @param array<mixed> $initialDataRow
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return bool
      */
     protected function isValidationMatchingPriceProduct(
         array $initialDataRow,
@@ -391,8 +348,6 @@ class PriceProductOfferMapper
 
     /**
      * @param mixed $value
-     *
-     * @return int|null
      */
     protected function convertDecimalToInteger($value): ?int
     {

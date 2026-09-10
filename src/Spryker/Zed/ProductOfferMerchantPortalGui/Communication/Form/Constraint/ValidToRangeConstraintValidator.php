@@ -21,11 +21,8 @@ class ValidToRangeConstraintValidator extends AbstractConstraintValidator
      * Checks if the Valid to value is not earlier than Valid from.
      *
      * @param mixed|string $value
-     * @param \Symfony\Component\Validator\Constraint $constraint
      *
      * @throws \Symfony\Component\Validator\Exception\UnexpectedTypeException
-     *
-     * @return void
      */
     public function validate($value, Constraint $constraint): void
     {

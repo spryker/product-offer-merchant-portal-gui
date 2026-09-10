@@ -57,11 +57,7 @@ class UpdateProductOfferController extends AbstractProductOfferController
     protected const APPROVAL_STATUS_WAITING_FOR_APPROVAL_CHIP_TITLE = 'Pending';
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function indexAction(Request $request): JsonResponse
     {
@@ -151,13 +147,7 @@ class UpdateProductOfferController extends AbstractProductOfferController
 
     /**
      * @param \Symfony\Component\Form\FormInterface<mixed> $productOfferForm
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     * @param \Generated\Shared\Transfer\ProductOfferResponseTransfer $productOfferResponseTransfer
-     * @param int $idProductOffer
      * @param array<mixed> $initialData
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     protected function getResponse(
         FormInterface $productOfferForm,

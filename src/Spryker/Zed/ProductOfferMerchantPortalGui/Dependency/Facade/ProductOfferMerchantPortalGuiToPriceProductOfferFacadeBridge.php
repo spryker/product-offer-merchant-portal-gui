@@ -49,8 +49,6 @@ class ProductOfferMerchantPortalGuiToPriceProductOfferFacadeBridge implements Pr
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferCriteriaTransfer $priceProductOfferCriteriaTransfer
-     *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>
      */
     public function getProductOfferPrices(

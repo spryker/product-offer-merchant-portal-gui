@@ -19,11 +19,7 @@ interface ProductOfferMerchantPortalGuiToCurrencyFacadeInterface
     public function findCurrencyByIsoCode(string $isoCode): ?CurrencyTransfer;
 
     /**
-     * @param int $idCurrency
-     *
      * @throws \Spryker\Zed\Currency\Business\Model\Exception\CurrencyNotFoundException
-     *
-     * @return \Generated\Shared\Transfer\CurrencyTransfer
      */
     public function getByIdCurrency(int $idCurrency): CurrencyTransfer;
 }

@@ -13,14 +13,8 @@ use Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerc
 
 class PriceProductReader implements PriceProductReaderInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Dependency\Facade\ProductOfferMerchantPortalGuiToPriceProductOfferFacadeInterface
-     */
     protected ProductOfferMerchantPortalGuiToPriceProductOfferFacadeInterface $priceProductOfferFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductOfferMerchantPortalGui\Communication\Filter\PriceProductFilterInterface
-     */
     protected PriceProductFilterInterface $priceProductFilter;
 
     public function __construct(
@@ -32,8 +26,6 @@ class PriceProductReader implements PriceProductReaderInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductOfferCriteriaTransfer $priceProductOfferCriteriaTransfer
-     *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */
     public function getPriceProductTransfers(

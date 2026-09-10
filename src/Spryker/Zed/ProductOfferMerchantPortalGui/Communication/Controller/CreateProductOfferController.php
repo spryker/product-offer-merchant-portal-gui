@@ -35,11 +35,7 @@ class CreateProductOfferController extends AbstractProductOfferController
     protected const RESPONSE_ACTION_REDIRECT_URL = '/product-offer-merchant-portal-gui/product-offers';
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function indexAction(Request $request): JsonResponse
     {
@@ -115,11 +111,7 @@ class CreateProductOfferController extends AbstractProductOfferController
 
     /**
      * @param \Symfony\Component\Form\FormInterface<mixed> $productOfferForm
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
      * @param array<mixed> $initialData
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     protected function getResponse(
         FormInterface $productOfferForm,
