@@ -77,7 +77,7 @@ class PriceProductOfferTransformer implements DataTransformerInterface
      *
      * @return mixed
      */
-    public function transform($value)
+    public function transform($value): mixed
     {
         $prices = [];
         $priceTypes = $this->priceProductFacade->getPriceTypeValues();
@@ -108,7 +108,7 @@ class PriceProductOfferTransformer implements DataTransformerInterface
      *
      * @return mixed
      */
-    public function reverseTransform($value)
+    public function reverseTransform($value): mixed
     {
         $priceProductTransfers = $this->getPersistedPriceProductTransfers();
 
