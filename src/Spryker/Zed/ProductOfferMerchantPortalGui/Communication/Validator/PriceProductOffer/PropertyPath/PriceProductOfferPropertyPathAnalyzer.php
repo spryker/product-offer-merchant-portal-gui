@@ -188,7 +188,7 @@ class PriceProductOfferPropertyPathAnalyzer implements PriceProductOfferProperty
 
     protected function extractPriceTypeNameFromMoneyValue(string $moneyTypeWithPriceTypeName): string
     {
-        [$_, $priceTypeName] = explode(':', $moneyTypeWithPriceTypeName);
+        [, $priceTypeName] = explode(':', $moneyTypeWithPriceTypeName);
 
         return $priceTypeName;
     }
